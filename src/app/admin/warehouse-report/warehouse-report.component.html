@@ -1,11 +1,11 @@
 <app-title [description]="'Отчет о загрузке склада'"></app-title>
 <div class="report-container">
   <div class="amount-container">
-    <p class="amount-info" *ngIf="totalAmount.spaceAvailable">
-      Количество свободного места на складе: {{ totalAmount.spaceAvailable }}
+    <p class="amount-info" *ngIf="totalAmount?.spaceAvailable">
+      Количество свободного места на складе: {{ totalAmount?.spaceAvailable }}
     </p>
-    <p class="amount-info" *ngIf="totalAmount.total">
-      Всего единиц на складе: {{ totalAmount.total }}
+    <p class="amount-info" *ngIf="totalAmount?.total">
+      Всего единиц на складе: {{ totalAmount?.total }}
     </p>
   </div>
 </div>
