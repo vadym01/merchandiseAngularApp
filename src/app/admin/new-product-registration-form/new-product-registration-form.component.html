@@ -1,0 +1,103 @@
+<div class="form-container">
+  <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+    <div class="main-info-container">
+      <div class="form-group">
+        <label for="productName">
+          <input
+            type="text"
+            class="form-control"
+            [ngModel]="product?.productName"
+            (ngModelChange)="(null)"
+            name="productName"
+          />
+        </label>
+      </div>
+      <div class="form-group">
+        <label for="description">Описание</label>
+        <input
+          type="text"
+          class="form-control"
+          [ngModel]="product?.description"
+          (ngModelChange)="(null)"
+          name="description"
+        />
+      </div>
+      <div class="form-group">
+        <label for="sender">Отправитель</label>
+        <input
+          type="text"
+          class="form-control"
+          [ngModel]="product?.sender"
+          (ngModelChange)="(null)"
+          name="sender"
+        />
+      </div>
+      <div class="form-group">
+        <label for="receiver">Получатель</label>
+        <input
+          type="text"
+          id="receiver"
+          class="form-control"
+          [ngModel]="product?.receiver"
+          (ngModelChange)="(null)"
+          name="receiver"
+        />
+      </div>
+    </div>
+    <div class="detail-info-container">
+      <div class="parameters-input-group">
+        <div class="form-group">
+          <label for="weight">Вес</label>
+          <input
+            type="number"
+            id="weight"
+            class="form-control"
+            [ngModel]="product?.weight"
+            (ngModelChange)="(null)"
+            name="weight"
+          />
+        </div>
+        <div class="form-group">
+          <label for="volume">Обем</label>
+          <input
+            type="number"
+            class="form-control"
+            [ngModel]="product?.volume"
+            (ngModelChange)="(null)"
+            name="volume"
+          />
+        </div>
+      </div>
+      <div class="date-input-group">
+        <div class="form-group">
+          <label for="receiptDate">Дата поступления</label>
+          <input
+            type="date"
+            class="form-control"
+            [ngModel]="product?.receiptDate"
+            (ngModelChange)="(null)"
+            name="receiptDate"
+          />
+        </div>
+        <div class="form-group">
+          <label for="scheduledShipmentDate">Плановая дата отправления</label>
+          <input
+            type="date"
+            id="date-of-shipment"
+            class="form-control"
+            [ngModel]="product?.scheduledShipmentDate"
+            (ngModelChange)="(null)"
+            name="scheduledShipmentDate"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="submit-form-group">
+      <div class="submit-container">
+        <button type="submit" id="submit-button"></button>
+        <p>Сохранить</p>
+      </div>
+      <p *ngIf="invNumber" id="inv-number">INV: {{ invNumber }}</p>
+    </div>
+  </form>
+</div>

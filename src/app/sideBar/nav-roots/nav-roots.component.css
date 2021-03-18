@@ -1,0 +1,82 @@
+/* * {
+  border: red 1px solid;
+} */
+
+.container {
+  background-color: #171717;
+  color: white;
+  text-align: center;
+  width: 270px;
+  height: 100vh;
+  font-family: monospace;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.list-container {
+  display: grid;
+}
+
+.nav-container {
+  display: flex;
+  height: 70px;
+  align-items: center;
+  padding-left: 25px;
+  cursor: pointer;
+  /* justify-content: center; */
+}
+hr {
+  border: 1px solid #cdc68f;
+}
+i {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+}
+
+p {
+  padding-left: 30px;
+  width: 200px;
+}
+
+#new-registration {
+  background: url("src/resources/registrationNewItemIcon.png");
+}
+
+#discharge {
+  background: url("src/resources/dischargeIcon.png");
+}
+
+#report {
+  background: url("src/resources/reportIcon.png");
+}
+
+/* #employee-registration {
+  background: url("src/resources/newEmployeeImg.png");
+} */
+
+#personal-data {
+  background: url("src/resources/personalData.png");
+}
+
+#employee-manage {
+  background: url("src/resources/employeeManageIcon.png");
+}
+
+#equipment {
+  background: url("src/resources/keyIcon.png");
+}
+
+#editing {
+  background: url("src/resources/gearsIcon.png");
+}
+
+#equipment-manage {
+  background: url("src/resources/quantityListIcon.png");
+}
+
+#incident-manage {
+  background: url("src/resources/incidentIcon.png");
+}
+
+#employee-incident {
+  background: url("src/resources/employee-incidentImg.png");
+}

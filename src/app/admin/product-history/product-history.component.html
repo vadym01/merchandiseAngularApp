@@ -1,0 +1,76 @@
+<app-title [description]="'История поступлений'"></app-title>
+
+<div *ngIf="showForm">
+  <button (click)="onClickCloseInfoHandler()">close</button>
+  <app-new-product-registration-form
+    (formSubmissionEvent)="onFormSubmit($event)"
+    [product]="selectedProduct"
+  >
+  </app-new-product-registration-form>
+</div>
+
+<div *ngIf="showInfo" class="product-info">
+  <button (click)="onClickCloseInfoHandler()">close</button>
+  <p>INVNumber: {{ selectedProduct?.invnumber }}</p>
+  <p>Обозначение Продукта: {{ selectedProduct?.productName }}</p>
+  <p>Описание: {{ selectedProduct?.description }}</p>
+  <p>Вес: {{ selectedProduct?.weight }}</p>
+  <p>Обем: {{ selectedProduct?.volume }}</p>
+  <p>Отправитель: {{ selectedProduct?.sender }}</p>
+  <p>Получатель: {{ selectedProduct?.receiver }}</p>
+  <p>Дата получения: {{ selectedProduct?.receiptDate }}</p>
+  <p>
+    Планированая дата отправления: {{ selectedProduct?.scheduledShipmentDate }}
+  </p>
+  <p>Присутствует на складе: {{ selectedProduct?.isPresent }}</p>
+  <p>Обработан: {{ selectedProduct?.isProcessed }}</p>
+  <p>Загружен работником {{ selectedProduct?.loadedByEmployee }}</p>
+  <p>Отпарвлен работником {{ selectedProduct?.sentByEmployee }}</p>
+  <p>Дата загрузки на склад: {{ selectedProduct?.arrivalDate }}</p>
+  <p>Дата отправления сос клада: {{ selectedProduct?.shipmentDate }}</p>
+</div>
+
+<table class="styled-table">
+  <thead>
+    <tr>
+      <th>INVНомер</th>
+      <th>Обозначение продукта</th>
+      <th>Обем</th>
+      <th>Вес</th>
+      <th>Отправитель</th>
+      <th>Получатель</th>
+      <th>Дата получения</th>
+      <th>Дата отправление</th>
+      <th>Действия</th>
+    </tr>
+  </thead>
+  <tbody class="tbody-class">
+    <tr *ngFor="let product of productData; let indexOfElement = index">
+      <td>
+        {{ product.invnumber }}
+      </td>
+      <td>
+        {{ product.productName }}
+      </td>
+      <td>{{ product.volume }}</td>
+      <td>{{ product.weight }}</td>
+      <td>{{ product.sender }}</td>
+      <td>{{ product.receiver }}</td>
+      <td>{{ product.receiptDate | date: "yyyy-MM-dd" }}</td>
+      <td>{{ product.scheduledShipmentDate | date: "yyyy-MM-dd" }}</td>
+      <td [ngStyle]="{ width: '100px' }">
+        <button (click)="showDataInfoClickHandler(indexOfElement)">
+          подробности
+        </button>
+        <button (click)="editDataInfoClickHandler(indexOfElement)">
+          редактировать
+        </button>
+        <button
+          (click)="onDeleteClickHandler(product.invnumber, indexOfElement)"
+        >
+          удалить
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>

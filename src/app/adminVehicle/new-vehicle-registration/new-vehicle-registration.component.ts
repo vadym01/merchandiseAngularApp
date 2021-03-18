@@ -1,0 +1,27 @@
+import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { VehicleService } from 'src/app/services/vehicle.service';
+import { error } from 'protractor';
+
+@Component({
+  selector: 'app-new-vehicle-registration',
+  templateUrl: './new-vehicle-registration.component.html',
+  styleUrls: ['./new-vehicle-registration.component.css'],
+})
+export class NewVehicleRegistrationComponent implements OnInit {
+  constructor(private vehicleService: VehicleService) {}
+
+  ngOnInit(): void {}
+
+  onVehicleSubmit(formData: NgForm) {
+    console.log(formData.value);
+    this.vehicleService.saveNewVehicle(formData?.value).subscribe(
+      (response) => {
+        console.log(response);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+}

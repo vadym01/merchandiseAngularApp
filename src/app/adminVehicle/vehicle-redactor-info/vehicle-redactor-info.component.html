@@ -1,0 +1,11 @@
+<app-title [description]="'Редактирование техники'"></app-title>
+<app-vehicle-form
+  *ngIf="displayForm"
+  [formData]="vehicle"
+  (newVehicleEvent)="onVehicleFormSubmit($event)"
+></app-vehicle-form>
+<app-vehicle-table
+  (vehicleInfoId)="showVehicleForm($event)"
+  [showActions]="true"
+  [vehicles]="vehicles"
+></app-vehicle-table>

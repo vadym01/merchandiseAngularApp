@@ -1,0 +1,24 @@
+<div class="employee-info-container">
+  <app-title
+    [description]="'Редактирование персональных данних работников'"
+  ></app-title>
+  <div class="employee-form-container" *ngIf="showEmployeeForm">
+    <app-employee-form
+      [formData]="employee"
+      (newItemEvent)="onSubmitChanges($event)"
+    ></app-employee-form>
+  </div>
+  <div class="table-container">
+    <form (ngSubmit)="onSubmit()" #f="ngForm" id="search-form">
+      <label for="name">Employee Name</label>
+      <input type="" name="name" ngModel />
+      <button type="submit">Search</button>
+    </form>
+    <app-employee-table
+      [employees]="employees"
+      (employeeInfoIndex)="showEmployeeInfo($event)"
+      [showButtons]="true"
+      (employeeDeleteIndex)="deleteEmployee($event)"
+    ></app-employee-table>
+  </div>
+</div>

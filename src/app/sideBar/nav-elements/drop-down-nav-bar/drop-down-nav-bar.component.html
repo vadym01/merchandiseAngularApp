@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="dropdown" (click)="changeDisplayStatus()">
+    <i class="icon" id="admin"></i>
+    <span>{{ currentUser }}</span>
+    <div class="icon" id="drop-down-arrow"></div>
+  </div>
+  <div [ngClass]="display ? 'display' : 'hidden'">
+    <div class="dropdown-content">
+      <p
+        (click)="changeCurrentUser('AdminEmployee'); changeDisplayStatus()"
+        *ngIf="currentUser !== 'AdminEmployee'"
+        class="drop-down-element"
+      >
+        Admin employee
+      </p>
+      <p
+        (click)="changeCurrentUser('AdminVehicle'); changeDisplayStatus()"
+        *ngIf="currentUser !== 'AdminVehicle'"
+        class="drop-down-element"
+      >
+        Admin vehicle
+      </p>
+      <p
+        (click)="changeCurrentUser('Admin'); changeDisplayStatus()"
+        *ngIf="currentUser !== 'Admin'"
+        class="drop-down-element"
+      >
+        Admin
+      </p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,35 @@
+<form (ngSubmit)="onSubmit()" #f="ngForm" id="search-form">
+  <label for="name">Vehicle Name</label>
+  <input type="" name="name" ngModel />
+  <button type="submit">Search</button>
+</form>
+<table class="styled-table">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Тип</th>
+      <th>Дата поступления</th>
+      <th>Грузоподемность</th>
+      <th *ngIf="showActions">Действия</th>
+    </tr>
+  </thead>
+  <tbody class="tbody-class">
+    <tr *ngFor="let vehicle of vehicles">
+      <td>
+        {{ vehicle.id }}
+      </td>
+      <td>
+        {{ vehicle.vehicleName }}
+      </td>
+      <td>
+        {{ vehicle.dateOfReceipt | date: "yyyy-MM-dd" }}
+      </td>
+      <td>
+        {{ vehicle.liftingCapacity }}
+      </td>
+      <td [ngStyle]="{ width: '100px' }" *ngIf="showActions">
+        <button (click)="showVehicleInfo(vehicle.id)">подробности</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

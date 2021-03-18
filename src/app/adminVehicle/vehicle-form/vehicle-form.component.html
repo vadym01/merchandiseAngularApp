@@ -1,0 +1,52 @@
+<div class="form-container">
+  <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+    <div class="main-info-container">
+      <div class="form-group">
+        <label for="vehicleName">Тип</label>
+        <input
+          type="text"
+          class="form-control"
+          [ngModel]="formData?.vehicleName"
+          (ngModelChange)="(null)"
+          name="vehicleName"
+        />
+      </div>
+      <!-- <div class="form-group">
+          <label for="isWorkable">Техника исправна</label>
+          <input
+            type="checkbox"
+            class="form-control"
+            [ngModel]="formData?.isWorkable"
+            (ngModelChange)="(null)"
+            name="isWorkable"
+          />
+        </div> -->
+      <div class="form-group">
+        <label for="dateOfReceipt">Дата поступления</label>
+        <input
+          type="date"
+          class="form-control"
+          [ngModel]="formData?.dateOfReceipt"
+          (ngModelChange)="(null)"
+          name="dateOfReceipt"
+        />
+      </div>
+      <div class="form-group">
+        <label for="liftingCapacity">Грузоподемность</label>
+        <input
+          type="number"
+          class="form-control"
+          [ngModel]="formData?.liftingCapacity"
+          (ngModelChange)="(null)"
+          name="liftingCapacity"
+        />
+      </div>
+    </div>
+    <div class="submit-form-group">
+      <div class="submit-container">
+        <button type="submit" id="submit-button"></button>
+        <p>Сохранить</p>
+      </div>
+    </div>
+  </form>
+</div>

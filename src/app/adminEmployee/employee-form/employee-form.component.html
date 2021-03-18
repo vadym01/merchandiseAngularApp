@@ -1,0 +1,52 @@
+<div class="form-container">
+  <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+    <div class="main-info-container">
+      <div class="form-group">
+        <label for="firstName">Имя</label>
+        <input
+          type="text"
+          class="form-control"
+          [ngModel]="formData?.firstName"
+          (ngModelChange)="(null)"
+          name="firstName"
+        />
+      </div>
+      <div class="form-group">
+        <label for="lastName">Фамилия</label>
+        <input
+          type="text"
+          class="form-control"
+          [ngModel]="formData?.lastName"
+          (ngModelChange)="(null)"
+          name="lastName"
+        />
+      </div>
+      <div class="form-group">
+        <label for="patronymic">Отчество</label>
+        <input
+          type="text"
+          class="form-control"
+          [ngModel]="formData?.patronymic"
+          (ngModelChange)="(null)"
+          name="patronymic"
+        />
+      </div>
+      <div class="form-group">
+        <label for="birthDate">Дата рождения</label>
+        <input
+          type="date"
+          class="form-control"
+          [ngModel]="formData?.birthDate"
+          (ngModelChange)="(null)"
+          name="birthDate"
+        />
+      </div>
+    </div>
+    <div class="submit-form-group">
+      <div class="submit-container">
+        <button type="submit" id="submit-button"></button>
+        <p>Сохранить</p>
+      </div>
+    </div>
+  </form>
+</div>

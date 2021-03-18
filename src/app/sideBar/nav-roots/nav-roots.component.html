@@ -1,0 +1,135 @@
+<div class="container">
+  <app-drop-down-nav-bar
+    (onDatePicked)="changeCurrentUser($event)"
+  ></app-drop-down-nav-bar>
+  <div [ngSwitch]="selectedAdmin">
+    <ng-template ngSwitchCase="Admin">
+      <div class="list-container">
+        <hr />
+        <div
+          routerLink="/admin/registration"
+          class="nav-container"
+          routerLinkActive="router-link-active"
+        >
+          <i class="icon" id="new-registration"></i>
+          <p>
+            Регистрация<br />
+            нового товара
+          </p>
+        </div>
+        <hr />
+        <div class="nav-container" routerLink="/admin/report">
+          <i class="icon" id="report"></i>
+          <p>
+            Отчет о загрузке <br />
+            склада
+          </p>
+        </div>
+        <hr />
+        <div class="nav-container" routerLink="/admin/history">
+          <i class="icon" id="discharge"></i>
+          <p>
+            История <br />
+            поступлений
+          </p>
+        </div>
+      </div>
+    </ng-template>
+    <ng-template ngSwitchCase="AdminEmployee">
+      <div class="list-container">
+        <hr />
+        <div class="nav-container" routerLink="/admin/employee/registration">
+          <i class="icon" id="employee-registration"></i>
+          <p>
+            Регистрация нового<br />
+            работника
+          </p>
+        </div>
+        <hr />
+        <div class="nav-container" routerLink="/admin/employee/redactor">
+          <i class="icon" id="personal-data"></i>
+          <p>
+            Редактирование персональных <br />
+            данних работников
+          </p>
+        </div>
+        <hr />
+        <div class="nav-container" routerLink="/admin/employee/management">
+          <i class="icon" id="employee-manage"></i>
+          <p>
+            Количество <br />
+            работников на смену
+          </p>
+        </div>
+      </div>
+      <hr />
+      <div class="nav-container" routerLink="/admin/employee/incident">
+        <i class="icon" id="employee-incident"></i>
+        <p>Зарегистрировать инцидетн</p>
+      </div>
+    </ng-template>
+    <!-- admin vehicle -->
+    <ng-template ngSwitchCase="AdminVehicle">
+      <div class="list-container">
+        <hr />
+        <div class="nav-container" routerLink="/admin/vehicle/registration">
+          <i class="icon" id="equipment"></i>
+          <p>Регистрация новой техники</p>
+        </div>
+        <hr />
+        <div class="nav-container" routerLink="/admin/vehicle/info">
+          <i class="icon" id="editing"></i>
+          <p>
+            Редактирование <br />
+            техники
+          </p>
+        </div>
+        <hr />
+        <div class="nav-container" routerLink="/admin/vehicle/management">
+          <i class="icon" id="equipment-manage"></i>
+          <p>
+            Количество техники <br />
+            на смену
+          </p>
+        </div>
+        <hr />
+        <div class="nav-container" routerLink="admin/vehicle/incident">
+          <i class="icon" id="incident-manage"></i>
+          <p>
+            Зарегистритовать инцидент <br />
+            неисправность
+          </p>
+        </div>
+      </div>
+    </ng-template>
+    <ng-template ngSwitchDefault>
+      <div class="list-container">
+        <hr />
+        <div
+          routerLink="/admin/registration"
+          class="nav-container"
+          routerLinkActive="router-link-active"
+        >
+          <i class="icon" id="new-registration"></i>
+          <p>
+            Регистрация<br />
+            нового товара
+          </p>
+        </div>
+        <hr />
+        <div class="nav-container" routerLink="/admin/report">
+          <i class="icon" id="report"></i>
+          <p>
+            Отчет о загрузке <br />
+            склада
+          </p>
+        </div>
+        <hr />
+        <div class="nav-container" routerLink="/admin/history">
+          <i class="icon" id="discharge"></i>
+          <p>История поступлений</p>
+        </div>
+      </div>
+    </ng-template>
+  </div>
+</div>
