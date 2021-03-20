@@ -28,6 +28,7 @@ import { VehicleIncidentComponent } from './adminVehicle/vehicle-incident/vehicl
 import { TitleComponent } from './globalComponents/title/title.component';
 import { EmployeeIncidentComponent } from './adminEmployee/employee-incident/employee-incident.component';
 import { NewProductRegistrationFormComponent } from './admin/new-product-registration-form/new-product-registration-form.component';
+import { TestComponentComponent } from './test-component/test-component.component';
 
 // import { HttpClient } from '@angular/common/http';
 
@@ -109,6 +110,7 @@ const appRoutes: Routes = [
     TitleComponent,
     EmployeeIncidentComponent,
     NewProductRegistrationFormComponent,
+    TestComponentComponent,
   ],
   imports: [
     BrowserModule,

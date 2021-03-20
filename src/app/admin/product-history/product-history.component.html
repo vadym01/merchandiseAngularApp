@@ -59,17 +59,18 @@
       <td>{{ product.receiptDate | date: "yyyy-MM-dd" }}</td>
       <td>{{ product.scheduledShipmentDate | date: "yyyy-MM-dd" }}</td>
       <td [ngStyle]="{ width: '100px' }">
-        <button (click)="showDataInfoClickHandler(indexOfElement)">
-          подробности
-        </button>
-        <button (click)="editDataInfoClickHandler(indexOfElement)">
-          редактировать
-        </button>
+        <button
+          (click)="showDataInfoClickHandler(indexOfElement)"
+          id="info-button"
+        ></button>
+        <button
+          (click)="editDataInfoClickHandler(indexOfElement)"
+          id="edit-button"
+        ></button>
         <button
           (click)="onDeleteClickHandler(product.invnumber, indexOfElement)"
-        >
-          удалить
-        </button>
+          id="delete-button"
+        ></button>
       </td>
     </tr>
   </tbody>

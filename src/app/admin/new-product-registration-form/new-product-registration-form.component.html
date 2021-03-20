@@ -2,15 +2,20 @@
   <form (ngSubmit)="onSubmit(f)" #f="ngForm">
     <div class="main-info-container">
       <div class="form-group">
-        <label for="productName">
-          <input
-            type="text"
-            class="form-control"
-            [ngModel]="product?.productName"
-            (ngModelChange)="(null)"
-            name="productName"
-          />
-        </label>
+        <label for="productName">Обазначение продукта</label>
+        <input
+          type="text"
+          class="form-control"
+          [ngModel]="product?.productName"
+          (ngModelChange)="(null)"
+          name="productName"
+          required
+          min="2"
+          #name="ngModel"
+        />
+        <span class="validation-message" *ngIf="!name.valid && name.touched"
+          >Введите минимум 2 символа для обозначение продукта</span
+        >
       </div>
       <div class="form-group">
         <label for="description">Описание</label>
@@ -20,7 +25,15 @@
           [ngModel]="product?.description"
           (ngModelChange)="(null)"
           name="description"
+          required
+          min="2"
+          #description="ngModel"
         />
+        <span
+          class="validation-message"
+          *ngIf="!description.valid && description.touched"
+          >Введите минимум 2 символа для описания продукта</span
+        >
       </div>
       <div class="form-group">
         <label for="sender">Отправитель</label>
@@ -30,7 +43,13 @@
           [ngModel]="product?.sender"
           (ngModelChange)="(null)"
           name="sender"
+          required
+          min="2"
+          #sender="ngModel"
         />
+        <span class="validation-message" *ngIf="!sender.valid && sender.touched"
+          >Введите минимум 2 символа для обозначения отправителя</span
+        >
       </div>
       <div class="form-group">
         <label for="receiver">Получатель</label>
@@ -41,7 +60,14 @@
           [ngModel]="product?.receiver"
           (ngModelChange)="(null)"
           name="receiver"
+          min="2"
+          required
+          #receiver="ngModel"
         />
+        <span
+          class="validation-message"
+          *ngIf="!receiver.valid && receiver.touched"
+        ></span>
       </div>
     </div>
     <div class="detail-info-container">
@@ -54,18 +80,32 @@
             class="form-control"
             [ngModel]="product?.weight"
             (ngModelChange)="(null)"
+            required
             name="weight"
+            #weight="ngModel"
           />
+          <span
+            class="validation-message"
+            *ngIf="!weight.valid && weight.touched"
+            >Введите дробное число для обозначения веса
+          </span>
         </div>
         <div class="form-group">
-          <label for="volume">Обем</label>
+          <label for="volume">Объем</label>
           <input
             type="number"
             class="form-control"
             [ngModel]="product?.volume"
             (ngModelChange)="(null)"
+            required
             name="volume"
+            #volume="ngModel"
           />
+          <span
+            class="validation-message"
+            *ngIf="!volume.valid && volume.touched"
+            >Введите дробное число для обозначения объема</span
+          >
         </div>
       </div>
       <div class="date-input-group">
@@ -76,8 +116,15 @@
             class="form-control"
             [ngModel]="product?.receiptDate"
             (ngModelChange)="(null)"
+            required
             name="receiptDate"
+            #receiptDate="ngModel"
           />
+          <span
+            class="validation-message"
+            *ngIf="!receiptDate.valid && receiptDate.touched"
+            >Введите дату поступления</span
+          >
         </div>
         <div class="form-group">
           <label for="scheduledShipmentDate">Плановая дата отправления</label>
@@ -87,14 +134,28 @@
             class="form-control"
             [ngModel]="product?.scheduledShipmentDate"
             (ngModelChange)="(null)"
+            required
             name="scheduledShipmentDate"
+            #scheduledShipmentDate="ngModel"
           />
+          <span
+            class="validation-message"
+            *ngIf="
+              !scheduledShipmentDate.valid && scheduledShipmentDate.touched
+            "
+            >Введите плановую дату отправления</span
+          >
         </div>
       </div>
     </div>
     <div class="submit-form-group">
       <div class="submit-container">
-        <button type="submit" id="submit-button"></button>
+        <button
+          type="submit"
+          id="submit-button"
+          [disabled]="f.invalid"
+          [ngClass]="{ 'disabled-button': f.invalid }"
+        ></button>
         <p>Сохранить</p>
       </div>
       <p *ngIf="invNumber" id="inv-number">INV: {{ invNumber }}</p>

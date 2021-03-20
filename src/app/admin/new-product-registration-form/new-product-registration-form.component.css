@@ -23,6 +23,9 @@ registration-container {
   height: 25px;
   font-size: 1em;
 }
+.date-input-group {
+  margin-left: 20px;
+}
 
 .detail-info-container {
   display: flex;
@@ -42,13 +45,19 @@ registration-container {
 }
 
 #submit-button {
-  background-image: url("src/resources/saveImg.png");
+  background-image: url("src/resources/validSubmitionIconImg.png");
   background-size: cover;
   border: none;
   background-color: transparent;
   cursor: pointer;
   width: 50px;
   height: 50px;
+}
+
+#submit-button.disabled-button {
+  background-image: url("src/resources/saveImg.png");
+  background-color: #cab3b3;
+  border-radius: 5px;
 }
 
 .submit-container {
@@ -67,4 +76,8 @@ registration-container {
   display: flex;
   width: 100%;
   align-items: center;
+}
+
+input.ng-invalid.ng-touched {
+  border: 1px solid red;
 }

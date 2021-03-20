@@ -8,14 +8,13 @@ a {
   padding-top: 10px;
   padding-bottom: 10px;
 }
-
 span {
   cursor: pointer;
 }
-
 .container {
   width: 270px;
   font-family: monospace;
+  /* height: 100%; */
   font-size: 1.5em;
   min-height: 150px;
   display: grid;
