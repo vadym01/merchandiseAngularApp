@@ -80,3 +80,7 @@ p {
 #employee-incident {
   background: url("src/resources/employee-incidentImg.png");
 }
+
+.admin-container {
+  height: 288px;
+}

@@ -4,7 +4,7 @@
   ></app-drop-down-nav-bar>
   <div [ngSwitch]="selectedAdmin">
     <ng-template ngSwitchCase="Admin">
-      <div class="list-container">
+      <div class="list-container" class="admin-container">
         <hr />
         <div
           routerLink="/admin/registration"
@@ -103,7 +103,7 @@
       </div>
     </ng-template>
     <ng-template ngSwitchDefault>
-      <div class="list-container">
+      <div class="list-container" class="admin-container">
         <hr />
         <div
           routerLink="/admin/registration"
