@@ -18,8 +18,4 @@ export class EmployeeTableComponent implements OnInit {
   showEmployeeInfo(index: number) {
     this.employeeInfoIndex.emit(index);
   }
-
-  onDeleteEmployeeHandler(index: number) {
-    this.employeeDeleteIndex.emit(index);
-  }
 }

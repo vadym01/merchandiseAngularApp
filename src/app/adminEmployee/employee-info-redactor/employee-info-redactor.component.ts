@@ -49,15 +49,6 @@ export class EmployeeInfoRedactorComponent implements OnInit {
     this.showEmployeeForm = true;
   }
 
-  deleteEmployee(index: number) {
-    const employee: Employee = this.employees[index];
-    this.employeeService.deleteEmployee(employee.id).subscribe(
-      (response) => console.log(response),
-      (error) => console.error(error)
-    );
-    this.employees.splice(index, 1);
-  }
-
   onSubmitChanges(data: NgForm) {
     this.employee.firstName = data.value.firstName;
     this.employee.lastName = data.value.lastName;

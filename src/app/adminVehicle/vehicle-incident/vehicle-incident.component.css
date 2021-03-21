@@ -79,3 +79,14 @@ table {
   display: flex;
   align-items: center;
 }
+
+.button-action {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  margin-right: 17px;
+}
+
+.fa {
+  font-size: 1.5em;
+}

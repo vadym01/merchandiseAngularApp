@@ -33,8 +33,4 @@ export class EmployeeService {
   updateEmployee(employee: Employee) {
     return this.http.put(this.baseUrl + 'employee', employee);
   }
-
-  deleteEmployee(id: number) {
-    return this.http.delete(this.baseUrl + `employee/${id}`);
-  }
 }

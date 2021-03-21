@@ -91,11 +91,17 @@
       <td>{{ incident.employee.firstName }}</td>
 
       <td>
-        <button (click)="onUpdateClickIncidentHandler(indexOfElement)">
-          редактировать
+        <button
+          (click)="onUpdateClickIncidentHandler(indexOfElement)"
+          class="button-action"
+        >
+          <i class="fa fa-pencil" aria-hidden="true"></i>
         </button>
-        <button (click)="deleteIncidentById(incident.id, indexOfElement)">
-          delete
+        <button
+          (click)="deleteIncidentById(incident.id, indexOfElement)"
+          class="button-action"
+        >
+          <i class="fa fa-trash" aria-hidden="true"></i>
         </button>
       </td>
     </tr>

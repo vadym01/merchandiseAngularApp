@@ -47,3 +47,21 @@ table {
   height: 20px;
   font-size: 1em;
 }
+
+#search-form label {
+  margin-right: 5px;
+}
+
+.button-action {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.fa {
+  font-size: 1.5em;
+}
+
+.fa.fa-search {
+  margin-left: 5px;
+}

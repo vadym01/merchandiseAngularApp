@@ -1,7 +1,9 @@
 <form (ngSubmit)="onSubmit()" #f="ngForm" id="search-form">
   <label for="name">Vehicle Name</label>
   <input type="" name="name" ngModel />
-  <button type="submit">Search</button>
+  <button type="submit" class="button-action">
+    <i class="fa fa-search" aria-hidden="true"></i>
+  </button>
 </form>
 <table class="styled-table">
   <thead>
@@ -28,7 +30,9 @@
         {{ vehicle.liftingCapacity }}
       </td>
       <td [ngStyle]="{ width: '100px' }" *ngIf="showActions">
-        <button (click)="showVehicleInfo(vehicle.id)">подробности</button>
+        <button (click)="showVehicleInfo(vehicle.id)" class="button-action">
+          <i class="fa fa-pencil" aria-hidden="true"></i>
+        </button>
       </td>
     </tr>
   </tbody>
