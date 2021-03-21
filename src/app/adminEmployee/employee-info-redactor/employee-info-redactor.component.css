@@ -37,13 +37,29 @@ table {
 }
 
 #search-form {
-  padding-left: 45%;
+  padding-left: 60%;
   width: 50%;
   text-align: center;
   padding-top: 20px;
+  display: flex;
 }
 
 #search-form input {
   height: 20px;
   font-size: 1em;
 }
+
+#search-form label {
+  padding-right: 4px;
+}
+
+#submit-button {
+  margin-left: 3px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+/* .table-container form {
+  display: inline-block;
+} */

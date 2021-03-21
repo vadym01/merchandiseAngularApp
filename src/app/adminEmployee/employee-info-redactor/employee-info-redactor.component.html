@@ -10,9 +10,11 @@
   </div>
   <div class="table-container">
     <form (ngSubmit)="onSubmit()" #f="ngForm" id="search-form">
-      <label for="name">Employee Name</label>
+      <label for="name">Employee Name </label>
       <input type="" name="name" ngModel />
-      <button type="submit">Search</button>
+      <button type="submit" id="submit-button">
+        <i class="fa fa-search" aria-hidden="true"></i>
+      </button>
     </form>
     <app-employee-table
       [employees]="employees"

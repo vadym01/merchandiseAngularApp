@@ -8,7 +8,7 @@ import { FormsModule } from '@angular/forms';
 import { NavRoots } from './sideBar/nav-roots/nav-roots.component';
 import { DropDownNavBarComponent } from './sideBar/nav-elements/drop-down-nav-bar/drop-down-nav-bar.component';
 import { HttpClientModule } from '@angular/common/http';
-
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ProductHistoryComponent } from './admin/product-history/product-history.component';
 import { WarehouseReportComponent } from './admin/warehouse-report/warehouse-report.component';
 import { NewEmployeeRegistrationComponent } from './adminEmployee/new-employee-registration/new-employee-registration.component';
@@ -115,6 +115,7 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FontAwesomeModule,
     FormsModule,
     RouterModule.forRoot(appRoutes),
     HttpClientModule,
