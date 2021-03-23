@@ -6,6 +6,7 @@
         <label for="incidentDescription">Описание</label>
         <input
           type="text"
+          id="incidentDescription"
           class="form-control"
           [ngModel]="incident?.incidentDescription"
           (ngModelChange)="(null)"
@@ -16,6 +17,7 @@
         <label for="date">Дата инцыдента</label>
         <input
           type="date"
+          id="date"
           class="form-control"
           [ngModel]="incident?.date"
           (ngModelChange)="(null)"
@@ -27,6 +29,7 @@
           <label for="vehicleId">Id техники</label>
           <input
             type="number"
+            id="vehicleId"
             class="form-control"
             [ngModel]="vehicle?.id"
             (ngModelChange)="(null)"
@@ -38,6 +41,7 @@
           <label for="vehicleName">Название техники</label>
           <input
             type="text"
+            id="vehicleName"
             class="form-control"
             [ngModel]="vehicle?.vehicleName"
             (ngModelChange)="(null)"

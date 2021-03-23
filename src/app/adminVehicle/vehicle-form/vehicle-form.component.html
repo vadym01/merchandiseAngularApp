@@ -5,6 +5,7 @@
         <label for="vehicleName">Тип</label>
         <input
           type="text"
+          id="vehicleName"
           class="form-control"
           [ngModel]="formData?.vehicleName"
           (ngModelChange)="(null)"
@@ -24,6 +25,7 @@
         <label for="dateOfReceipt">Дата поступления</label>
         <input
           type="date"
+          id="dateOfReceipt"
           class="form-control"
           [ngModel]="formData?.dateOfReceipt"
           (ngModelChange)="(null)"
@@ -42,6 +44,7 @@
         <label for="liftingCapacity">Грузоподемность</label>
         <input
           type="number"
+          id="liftingCapacity"
           class="form-control"
           [ngModel]="formData?.liftingCapacity"
           (ngModelChange)="(null)"

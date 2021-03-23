@@ -29,6 +29,7 @@ import { TitleComponent } from './globalComponents/title/title.component';
 import { EmployeeIncidentComponent } from './adminEmployee/employee-incident/employee-incident.component';
 import { NewProductRegistrationFormComponent } from './admin/new-product-registration-form/new-product-registration-form.component';
 import { SidebarFillerComponent } from './globalComponents/sidebar-filler/sidebar-filler.component';
+import { ErrorMessageComponent } from './globalComponents/error-message/error-message.component';
 
 // import { HttpClient } from '@angular/common/http';
 
@@ -111,6 +112,7 @@ const appRoutes: Routes = [
     EmployeeIncidentComponent,
     NewProductRegistrationFormComponent,
     SidebarFillerComponent,
+    ErrorMessageComponent,
   ],
   imports: [
     BrowserModule,

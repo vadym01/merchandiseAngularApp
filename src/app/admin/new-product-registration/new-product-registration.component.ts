@@ -16,6 +16,7 @@ import { Product } from 'src/app/services/model/product.model';
 })
 export class NewProductRegistrationComponent implements OnInit {
   formSubmissionResult: Product;
+  error: string;
   invNumber: number;
 
   @ViewChild('f') registrationForm: NgForm | undefined;
@@ -30,7 +31,8 @@ export class NewProductRegistrationComponent implements OnInit {
         console.log(response);
       },
       (error) => {
-        console.log(error);
+        setTimeout(this.error = null, 4000);
+        this.error = error;
       }
     );
   }
