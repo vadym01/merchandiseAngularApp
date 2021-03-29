@@ -1,25 +1,25 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Incident } from './model/incidents.model';
+import { Incident } from './model/incident.model';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
-export class IncidentsService {
+export class IncidentService {
   baseUrl = environment.baseUrl;
   constructor(private http: HttpClient) {}
 
   registerNewIncident(incident: any) {
-    return this.http.put<Incident>(this.baseUrl + `incidents`, incident);
+    return this.http.put<Incident>(this.baseUrl + `incident`, incident);
   }
 
-  getIncidentsForVehicle() {
-    return this.http.get<Incident[]>(this.baseUrl + 'incidents/vehicle');
+  getIncidentForVehicle() {
+    return this.http.get<Incident[]>(this.baseUrl + 'incident/vehicle');
   }
 
   deleteIncidentById(id: number) {
-    return this.http.delete(this.baseUrl + `incidents/${id}`).subscribe(
+    return this.http.delete(this.baseUrl + `incident/${id}`).subscribe(
       (response) => {
         console.log(response);
       },
@@ -29,7 +29,20 @@ export class IncidentsService {
     );
   }
 
-  getIncidentsForEmployee() {
-    return this.http.get<Incident[]>(this.baseUrl + 'incidents/employee');
+  getIncidentForEmployee() {
+    return this.http.get<Incident[]>(this.baseUrl + 'incident/employee');
+  }
+
+  changeIncidentStatus(id: number) {
+    return this.http
+      .put(this.baseUrl + `incident/status/${id}`, null)
+      .subscribe(
+        (response) => {
+          console.log(response);
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
   }
 }

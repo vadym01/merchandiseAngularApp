@@ -53,7 +53,7 @@ export class EmployeeInfoRedactorComponent implements OnInit {
     this.employee.firstName = data.value.firstName;
     this.employee.lastName = data.value.lastName;
     this.employee.patronymic = data.value.patronymic;
-    this.employee.birthDate = data.value.birthDate;
+    this.employee.dob = data.value.dob;
     this.employeeService.updateEmployee(this.employee).subscribe(
       (response) => {
         console.log(response);

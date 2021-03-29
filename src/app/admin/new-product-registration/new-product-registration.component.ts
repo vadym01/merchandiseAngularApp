@@ -31,7 +31,9 @@ export class NewProductRegistrationComponent implements OnInit {
         console.log(response);
       },
       (error) => {
-        setTimeout(this.error = null, 4000);
+        console.error(error);
+
+        setTimeout((this.error = null), 4000);
         this.error = error;
       }
     );

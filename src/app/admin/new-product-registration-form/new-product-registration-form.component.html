@@ -2,37 +2,42 @@
   <form (ngSubmit)="onSubmit(f)" #f="ngForm">
     <div class="main-info-container">
       <div class="form-group">
-        <label for="productName">Обазначение продукта</label>
+        <label for="productName">Обозначение продукта</label>
         <input
           type="text"
           class="form-control"
+          name="productName"
+          size="40"
+          minlength="2"
+          maxlength="40"
+          required
           [ngModel]="product?.productName"
           (ngModelChange)="(null)"
-          name="productName"
-          required
-          min="2"
           #name="ngModel"
         />
         <span class="validation-message" *ngIf="!name.valid && name.touched"
-          >Введите минимум 2 символа для обозначение продукта</span
+          >Введите от 2 до 40 символов для обозначения продукта</span
         >
       </div>
       <div class="form-group">
         <label for="description">Описание</label>
-        <input
+        <textarea
           type="text"
           class="form-control"
+          name="description"
+          rows="3"
+          cols="30"
+          minlength="2"
+          maxlength="60"
+          required
           [ngModel]="product?.description"
           (ngModelChange)="(null)"
-          name="description"
-          required
-          min="2"
           #description="ngModel"
-        />
+        ></textarea>
         <span
           class="validation-message"
           *ngIf="!description.valid && description.touched"
-          >Введите минимум 2 символа для описания продукта</span
+          >Введите от 2 до 60 символов для описания продукта</span
         >
       </div>
       <div class="form-group">
@@ -40,15 +45,17 @@
         <input
           type="text"
           class="form-control"
+          name="sender"
+          size="40"
+          minlength="2"
+          maxlength="40"
+          required
           [ngModel]="product?.sender"
           (ngModelChange)="(null)"
-          name="sender"
-          required
-          min="2"
           #sender="ngModel"
         />
         <span class="validation-message" *ngIf="!sender.valid && sender.touched"
-          >Введите минимум 2 символа для обозначения отправителя</span
+          >Введите от 2 до 40 символов для обозначения отправителя</span
         >
       </div>
       <div class="form-group">
@@ -57,17 +64,20 @@
           type="text"
           id="receiver"
           class="form-control"
+          name="receiver"
+          size="40"
+          minlength="5"
+          maxlength="40"
+          required
           [ngModel]="product?.receiver"
           (ngModelChange)="(null)"
-          name="receiver"
-          min="2"
-          required
           #receiver="ngModel"
         />
         <span
           class="validation-message"
           *ngIf="!receiver.valid && receiver.touched"
-        ></span>
+          >Введите от 2 до 40 символов для обозначения получателя</span
+        >
       </div>
     </div>
     <div class="detail-info-container">
@@ -78,16 +88,19 @@
             type="number"
             id="weight"
             class="form-control"
+            step="0.1"
+            min="0.1"
+            max="1000"
+            required
             [ngModel]="product?.weight"
             (ngModelChange)="(null)"
-            required
             name="weight"
             #weight="ngModel"
           />
           <span
             class="validation-message"
             *ngIf="!weight.valid && weight.touched"
-            >Введите дробное число для обозначения веса
+            >Введите число от 0.1 до 1000 для обозначения веса
           </span>
         </div>
         <div class="form-group">
@@ -95,16 +108,19 @@
           <input
             type="number"
             class="form-control"
+            step="0.1"
+            min="0.1"
+            max="50"
+            required
             [ngModel]="product?.volume"
             (ngModelChange)="(null)"
-            required
             name="volume"
             #volume="ngModel"
           />
           <span
             class="validation-message"
             *ngIf="!volume.valid && volume.touched"
-            >Введите дробное число для обозначения объема</span
+            >Введите число от 0.1 до 50 для обозначения объема</span
           >
         </div>
       </div>

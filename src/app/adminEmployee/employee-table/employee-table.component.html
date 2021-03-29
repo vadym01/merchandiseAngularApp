@@ -23,7 +23,7 @@
       <td>
         {{ employee.patronymic }}
       </td>
-      <td>{{ employee.birthDate }}</td>
+      <td>{{ employee.dob | date: "y-dd-MM" }}</td>
 
       <td [ngStyle]="{ width: '100px' }" *ngIf="showButtons">
         <button

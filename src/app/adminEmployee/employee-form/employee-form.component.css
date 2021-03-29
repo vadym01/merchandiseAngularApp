@@ -1,23 +1,56 @@
-.main-info-container input {
-  width: 453px;
-  height: 25px;
-  font-size: 1em;
+registration-container {
+  display: grid;
 }
 
 .form-container {
   margin-left: 17px;
 }
 
-.form-group {
-  display: grid;
-  grid-template-columns: 1fr;
-  padding-top: 15px;
+.main-info-container input {
+  /* width: 453px; */
+  height: 25px;
+  font-size: 1em;
 }
 
-#birth-date {
+.parameters-input-group input {
+  width: 70px;
+  height: 25px;
+  font-size: 1em;
+}
+
+textarea {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 1em;
+}
+
+.date-input-group input {
   width: 130px;
   height: 25px;
   font-size: 1em;
+}
+.date-input-group {
+  margin-left: 20px;
+}
+
+.detail-info-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 45%;
+}
+
+.submit-container {
+  padding-top: 40px;
+}
+
+.validation-message {
+  display: table-cell;
+  color: rgb(97, 2, 2);
+}
+
+.form-group label {
+  display: table-cell;
+  padding-top: 15px;
 }
 
 #submit-button {
@@ -37,8 +70,20 @@
 }
 
 .submit-container {
-  margin-top: 20px;
   display: flex;
+  align-items: center;
+}
+
+#inv-number {
+  font-size: 1.2em;
+  text-align: center;
+  /* margin-left: 30%; */
+  margin: 0 auto;
+}
+
+.submit-form-group {
+  display: flex;
+  width: 100%;
   align-items: center;
 }
 

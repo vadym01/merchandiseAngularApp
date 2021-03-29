@@ -49,6 +49,18 @@
             disabled
           />
         </div>
+        <!-- <div class="form-group incident-status">
+          <input
+            type="checkbox"
+            id="incidentStatus"
+            class="form-control"
+            [ngModel]="incident?.isResolved"
+            [value]="incident?.isResolved ? true : false"
+            (ngModelChange)="(null)"
+            name="incidentStatus"
+          />
+          <label for="incidentStatus">Статус инцидента</label>
+        </div> -->
       </div>
     </div>
     <div class="submit-form-group">
@@ -67,7 +79,7 @@
 ></app-vehicle-table>
 
 <br />
-
+<app-title [description]="'История инцидентов'"></app-title>
 <table class="styled-table">
   <thead>
     <tr>
@@ -80,7 +92,10 @@
     </tr>
   </thead>
   <tbody class="tbody-class">
-    <tr *ngFor="let incident of incidents; let indexOfElement = index">
+    <tr
+      *ngFor="let incident of incidents; let indexOfElement = index"
+      [ngClass]="{ 'incident-actual': incident?.resolved === false }"
+    >
       <td>
         {{ incident.id }}
       </td>
@@ -109,6 +124,19 @@
           class="button-action"
         >
           <i class="fa fa-pencil" aria-hidden="true"></i>
+        </button>
+        <button
+          (click)="onChangeStatusClickHandler(incident?.id)"
+          class="button-action"
+        >
+          <i
+            [ngClass]="
+              incident?.resolved === false
+                ? 'fa fa-toggle-on'
+                : 'fa fa-toggle-off'
+            "
+            aria-hidden="true"
+          ></i>
         </button>
       </td>
     </tr>
