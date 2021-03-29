@@ -19,6 +19,16 @@ table {
   color: white;
 }
 
+tr :last-child {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.incident-actual {
+  background-color: rgba(237, 0, 43, 0.324);
+}
+
 .styled-table th,
 .styled-table td {
   padding: 12px 15px;
@@ -84,7 +94,7 @@ table {
   border: none;
   background-color: transparent;
   cursor: pointer;
-  margin-right: 17px;
+  margin-right: 10px;
 }
 
 .fa {

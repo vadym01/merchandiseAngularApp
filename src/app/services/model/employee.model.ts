@@ -5,5 +5,6 @@ export interface Employee {
   firstName: string;
   lastName: string;
   patronymic: string;
-  birthDate: Date;
+  dob: Date;
+  available: boolean;
 }

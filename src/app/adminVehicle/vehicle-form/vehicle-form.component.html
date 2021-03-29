@@ -11,7 +11,6 @@
           (ngModelChange)="(null)"
           name="vehicleName"
           required
-          min="2"
           #vehicleName="ngModel"
         />
         <span
@@ -65,6 +64,7 @@
         <button
           type="submit"
           id="submit-button"
+          [disabled]="f.invalid"
           [ngClass]="{ 'disabled-button': f.invalid }"
         ></button>
         <p>Сохранить</p>

@@ -7,15 +7,17 @@
           type="text"
           id="firstName"
           class="form-control"
+          size="40"
+          minlength="2"
+          maxlength="40"
+          required
           [ngModel]="formData?.firstName"
           (ngModelChange)="(null)"
           name="firstName"
-          required
-          min="2"
           #name="ngModel"
         />
         <span class="validation-message" *ngIf="!name.valid && name.touched">
-          Введите минимум 2 символа для обозначении имени
+          Введите от 2 до 40 символов для обозначения имени работниа
         </span>
       </div>
       <div class="form-group">
@@ -24,17 +26,19 @@
           type="text"
           id="lastName"
           class="form-control"
+          size="40"
+          minlength="2"
+          maxlength="40"
+          required
           [ngModel]="formData?.lastName"
           (ngModelChange)="(null)"
           name="lastName"
-          required
-          min="2"
           #lastName="ngModel"
         />
         <span
           class="validation-message"
           *ngIf="!lastName.valid && lastName.touched"
-          >Введите минимум 2 символа для обозначении фамилии</span
+          >Введите от 2 до 40 символов для обозначения фамилии работниа</span
         >
       </div>
       <div class="form-group">
@@ -43,35 +47,35 @@
           type="text"
           id="patronymic"
           class="form-control"
+          size="40"
+          required
+          minlength="2"
+          maxlength="40"
           [ngModel]="formData?.patronymic"
           (ngModelChange)="(null)"
           name="patronymic"
-          required
-          min="2"
           #patronymic="ngModel"
         />
         <div
           class="validation-message"
           *ngIf="!patronymic.valid && patronymic.touched"
         >
-          Введите минимум 2 символа для обозначения отчества
+          Введите от 2 до 40 символов для обозначения фамилии работниа
         </div>
       </div>
       <div class="form-group">
         <label for="birthDate">Дата рождения</label>
         <input
           type="date"
-          id="birthDate"
+          id="dob"
           class="form-control"
-          [ngModel]="formData?.birthDate"
+          [ngModel]="formData?.dob"
           (ngModelChange)="(null)"
-          name="birthDate"
+          name="dob"
           required
-          #birthDate="ngModel"
+          #dob="ngModel"
         />
-        <span
-          class="validation-message"
-          *ngIf="!birthDate.valid && birthDate.touched"
+        <span class="validation-message" *ngIf="!dob.valid && dob.touched"
           >Введите дату рождения</span
         >
       </div>
@@ -81,6 +85,7 @@
         <button
           type="submit"
           id="submit-button"
+          [disabled]="f.invalid"
           [ngClass]="{ 'disabled-button': f.invalid }"
         ></button>
         <p>Сохранить</p>

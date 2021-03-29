@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild, ChangeDetectorRef } from '@angular/core';
-import { Incident } from 'src/app/services/model/incidents.model';
-import { IncidentsService } from 'src/app/services/incident.service';
+import { Incident } from 'src/app/services/model/incident.model';
+import { IncidentService } from 'src/app/services/incident.service';
 import { Employee } from 'src/app/services/model/employee.model';
 import { connectableObservableDescriptor } from 'rxjs/internal/observable/ConnectableObservable';
 import { EmployeeService } from 'src/app/services/employee.service';
@@ -14,13 +14,13 @@ import { NgForm } from '@angular/forms';
 export class EmployeeIncidentComponent implements OnInit {
   incident: Incident;
   employee: Employee;
-  showIncidentForm: boolean = false;
+  showIncidentForm = false;
   incidents: Incident[];
   employees: Employee[];
   @ViewChild('f') employeeIncidentForm: NgForm | undefined;
 
   constructor(
-    private incidentsService: IncidentsService,
+    private incidentService: IncidentService,
     private employeeService: EmployeeService,
     private cdr: ChangeDetectorRef
   ) {}
@@ -35,7 +35,7 @@ export class EmployeeIncidentComponent implements OnInit {
       }
     );
 
-    this.incidentsService.getIncidentsForEmployee().subscribe(
+    this.incidentService.getIncidentForEmployee().subscribe(
       (data) => {
         this.incidents = data;
       },
@@ -52,6 +52,16 @@ export class EmployeeIncidentComponent implements OnInit {
     this.showIncidentForm = true;
   }
 
+  onChangeStatusClickHandler(id: number) {
+    const incidentId = this.incidents.findIndex(
+      (incident) => incident.id === id
+    );
+    const incident = this.incidents[incidentId];
+    incident.resolved = !incident.resolved;
+    this.incidents.splice(incidentId, 1, incident);
+    this.incidentService.changeIncidentStatus(id);
+  }
+
   onSetEmployeeInfoClickHandler(index: number) {
     this.showIncidentForm = true;
     this.employee = this.employees[index];
@@ -59,14 +69,14 @@ export class EmployeeIncidentComponent implements OnInit {
   }
 
   deleteIncidentById(id: number, index: number) {
-    this.incidentsService.deleteIncidentById(id);
+    this.incidentService.deleteIncidentById(id);
     this.employees.push(this.incidents[index].employee);
     this.incidents.splice(index, 1);
   }
 
   onSubmit() {
     let incident: Incident;
-    if (this.incident != undefined) {
+    if (this.incident !== undefined) {
       this.incident.date = this.employeeIncidentForm.value.date;
       this.incident.incidentDescription = this.employeeIncidentForm.value.incidentDescription;
       incident = this.incident;
@@ -77,10 +87,12 @@ export class EmployeeIncidentComponent implements OnInit {
       };
     }
 
-    this.incidentsService.registerNewIncident(incident).subscribe(
+    this.incidentService.registerNewIncident(incident).subscribe(
       (response) => {
         console.log(response);
-        if (response?.id !== this.incident?.id) this.incidents.push(response);
+        if (response?.id !== this.incident?.id) {
+          this.incidents.push(response);
+        }
       },
       (error) => {
         console.log(error);

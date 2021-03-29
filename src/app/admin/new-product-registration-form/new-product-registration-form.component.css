@@ -7,7 +7,7 @@ registration-container {
 }
 
 .main-info-container input {
-  width: 453px;
+  /* width: 453px; */
   height: 25px;
   font-size: 1em;
 }
@@ -15,6 +15,11 @@ registration-container {
 .parameters-input-group input {
   width: 70px;
   height: 25px;
+  font-size: 1em;
+}
+
+textarea {
+  font-family: "Times New Roman", Times, serif;
   font-size: 1em;
 }
 
@@ -38,9 +43,13 @@ registration-container {
   padding-top: 40px;
 }
 
-.form-group {
-  display: grid;
-  grid-template-columns: 1fr;
+.validation-message {
+  display: table-cell;
+  color: rgb(97, 2, 2);
+}
+
+.form-group label {
+  display: table-cell;
   padding-top: 15px;
 }
 

@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { Incident } from 'src/app/services/model/incidents.model';
-import { IncidentsService } from 'src/app/services/incident.service';
+import { Incident } from 'src/app/services/model/incident.model';
+import { IncidentService } from 'src/app/services/incident.service';
 import { error } from 'protractor';
 import { VehicleService } from 'src/app/services/vehicle.service';
 import { Vehicle } from 'src/app/services/model/vehicle.model';
@@ -19,20 +19,20 @@ export class VehicleIncidentComponent implements OnInit {
   vehicle: Vehicle;
   // selectedVehicleId: number;
   // isRedacting: boolean = false;
-  showIncidentForm: boolean = false;
+  showIncidentForm = false;
 
   @ViewChild('f') vehicleIncidentForm: NgForm | undefined;
 
   constructor(
-    private incidentService: IncidentsService,
+    private incidentService: IncidentService,
     private vehicleService: VehicleService
   ) {}
 
   ngOnInit(): void {
-    this.incidentService.getIncidentsForVehicle().subscribe(
+    this.incidentService.getIncidentForVehicle().subscribe(
       (data) => {
         this.incidents = data;
-        // console.log(data);
+        console.log(data);
       },
       (error) => {
         console.error(error);
@@ -60,6 +60,16 @@ export class VehicleIncidentComponent implements OnInit {
   setVehicleInfo(vehicleId: number) {
     this.showIncidentForm = true;
     this.vehicle = this.allVehicles.find((vehicle) => vehicle.id === vehicleId);
+  }
+
+  onChangeStatusClickHandler(id: number) {
+    const incidentId = this.incidents.findIndex(
+      (incident) => incident.id === id
+    );
+    const incident = this.incidents[incidentId];
+    incident.resolved = !incident.resolved;
+    this.incidents.splice(incidentId, 1, incident);
+    this.incidentService.changeIncidentStatus(id);
   }
 
   onUpdateClickHandler(index: number) {

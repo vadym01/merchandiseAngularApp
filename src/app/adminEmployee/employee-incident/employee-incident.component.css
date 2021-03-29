@@ -36,20 +36,39 @@ table {
   border-bottom: 2px solid #009879;
 }
 
+tr :last-child {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.validation-message {
+  display: table-cell;
+  color: rgb(97, 2, 2);
+}
+
+.incident-actual {
+  background-color: rgba(237, 0, 43, 0.324);
+}
+
 .main-info-container input {
   width: 453px;
   height: 25px;
   font-size: 1em;
 }
 
-.form-container {
-  margin-left: 17px;
+label {
+  display: table-cell;
 }
 
-.form-group {
-  display: grid;
-  grid-template-columns: 1fr;
-  padding-top: 15px;
+.form-container {
+  margin-left: 17px;
+  margin-top: 10px;
+}
+
+textarea {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 1em;
 }
 
 #submit-button {
@@ -62,6 +81,19 @@ table {
   height: 50px;
 }
 
+.detail-info-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 45%;
+}
+
+.parameters-input-group input {
+  width: 200px;
+  height: 25px;
+  font-size: 1em;
+}
+
 .submit-container {
   margin-top: 20px;
   display: flex;
@@ -71,7 +103,8 @@ table {
 .button-action {
   border: none;
   background: transparent;
-  margin-right: 19px;
+  cursor: pointer;
+  margin-right: 10px;
 }
 
 .fa {

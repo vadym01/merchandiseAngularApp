@@ -12,7 +12,7 @@ export class ProductService {
   constructor(private http: HttpClient) {}
 
   saveProduct(data: Product) {
-    return this.http.put<Product>(this.baseUrl + 'product', data);
+    return this.http.post<Product>(this.baseUrl + 'product', data);
   }
 
   updateProduct(data: Product) {
