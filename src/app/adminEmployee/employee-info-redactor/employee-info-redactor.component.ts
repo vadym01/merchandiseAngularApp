@@ -5,6 +5,7 @@ import { error } from 'protractor';
 import { Params } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { HttpParams, HttpClient } from '@angular/common/http';
+import { ErrorReport } from 'src/app/services/model/error.model';
 
 @Component({
   selector: 'app-employee-info-redactor',
@@ -14,6 +15,7 @@ import { HttpParams, HttpClient } from '@angular/common/http';
 export class EmployeeInfoRedactorComponent implements OnInit {
   employees: Employee[];
   employee: Employee;
+  error: ErrorReport;
 
   @ViewChild('f') searchForm: NgForm | undefined;
   employeeInfoIndex: number;
@@ -27,6 +29,7 @@ export class EmployeeInfoRedactorComponent implements OnInit {
         this.employees = data;
       },
       (error) => {
+        this.error = error.error;
         console.error(error);
       }
     );
@@ -38,6 +41,7 @@ export class EmployeeInfoRedactorComponent implements OnInit {
         this.employees = data;
       },
       (error) => {
+        this.error = error.error;
         console.error(error);
       }
     );
@@ -59,6 +63,7 @@ export class EmployeeInfoRedactorComponent implements OnInit {
         console.log(response);
       },
       (error) => {
+        this.error = error;
         console.error(error);
       }
     );

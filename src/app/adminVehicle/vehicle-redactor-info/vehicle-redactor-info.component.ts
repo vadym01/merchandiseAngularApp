@@ -3,6 +3,8 @@ import { Vehicle } from 'src/app/services/model/vehicle.model';
 import { VehicleService } from 'src/app/services/vehicle.service';
 import { error } from 'protractor';
 import { NgForm } from '@angular/forms';
+import { ErrorReport } from 'src/app/services/model/error.model';
+import { timeStamp } from 'console';
 
 @Component({
   selector: 'app-vehicle-redactor-info',
@@ -13,6 +15,7 @@ export class VehicleRedactorInfoComponent implements OnInit {
   displayForm: boolean = false;
   vehicle: Vehicle;
   vehicles: Vehicle[];
+  error: ErrorReport;
   constructor(private vehicleService: VehicleService) {}
 
   ngOnInit(): void {
@@ -21,6 +24,7 @@ export class VehicleRedactorInfoComponent implements OnInit {
         this.vehicles = data;
       },
       (error) => {
+        this.error = error.error;
         console.error(error);
       }
     );
@@ -35,6 +39,7 @@ export class VehicleRedactorInfoComponent implements OnInit {
         console.log(data);
       },
       (error) => {
+        this.error = error.error;
         console.error(error);
       }
     );
@@ -49,6 +54,7 @@ export class VehicleRedactorInfoComponent implements OnInit {
         console.log(response);
       },
       (error) => {
+        this.error = error;
         console.error(error);
       }
     );

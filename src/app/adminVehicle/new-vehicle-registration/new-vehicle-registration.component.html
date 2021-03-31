@@ -1,5 +1,5 @@
 <app-title [description]="'Добавление новой техники'"></app-title>
 
-<app-vehicle-form (newVehicleEvent)="onVehicleSubmit($event)"
+<app-vehicle-form (newVehicleEvent)="onVehicleSubmit($event)" [error]="error"
   >></app-vehicle-form
 >

@@ -5,6 +5,7 @@ import { Employee } from 'src/app/services/model/employee.model';
 import { connectableObservableDescriptor } from 'rxjs/internal/observable/ConnectableObservable';
 import { EmployeeService } from 'src/app/services/employee.service';
 import { NgForm } from '@angular/forms';
+import { ErrorReport } from 'src/app/services/model/error.model';
 
 @Component({
   selector: 'app-employee-incident',
@@ -17,6 +18,7 @@ export class EmployeeIncidentComponent implements OnInit {
   showIncidentForm = false;
   incidents: Incident[];
   employees: Employee[];
+  error: ErrorReport;
   @ViewChild('f') employeeIncidentForm: NgForm | undefined;
 
   constructor(
@@ -31,6 +33,7 @@ export class EmployeeIncidentComponent implements OnInit {
         this.employees = data;
       },
       (error) => {
+        this.error = error.error;
         console.error(error);
       }
     );
@@ -40,6 +43,7 @@ export class EmployeeIncidentComponent implements OnInit {
         this.incidents = data;
       },
       (error) => {
+        this.error = error;
         console.error(error);
       }
     );
@@ -65,7 +69,6 @@ export class EmployeeIncidentComponent implements OnInit {
   onSetEmployeeInfoClickHandler(index: number) {
     this.showIncidentForm = true;
     this.employee = this.employees[index];
-    // this.incident.employee = this.employee;
   }
 
   deleteIncidentById(id: number, index: number) {
@@ -95,6 +98,7 @@ export class EmployeeIncidentComponent implements OnInit {
         }
       },
       (error) => {
+        this.error = error.error;
         console.log(error);
       }
     );

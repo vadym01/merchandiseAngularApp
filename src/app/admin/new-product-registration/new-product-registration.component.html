@@ -1,13 +1,9 @@
 <div class="registration-container">
   <app-title [description]="'Регистрация нового товара'"></app-title>
-  <app-error-message
-    [technicalError]="error"
-    [customErrorMessage]="'asfasf'"
-    *ngIf="error"
-  ></app-error-message>
   <app-new-product-registration-form
     (formSubmissionEvent)="onSubmit($event)"
     [invNumber]="invNumber"
+    [error]="error"
   >
   </app-new-product-registration-form>
 </div>

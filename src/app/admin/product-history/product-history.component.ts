@@ -50,6 +50,7 @@ export class ProductHistoryComponent implements OnInit {
         console.log(response);
       },
       (error) => {
+        this.error = error.error;
         console.error(error);
       }
     );
@@ -71,6 +72,7 @@ export class ProductHistoryComponent implements OnInit {
         product = response;
       },
       (error) => {
+        this.error = error.error;
         console.log(error);
       }
     );

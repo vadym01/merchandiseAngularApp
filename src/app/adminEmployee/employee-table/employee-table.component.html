@@ -1,4 +1,10 @@
 <table class="styled-table">
+  <app-error-message
+    [technicalError]="error"
+    [customErrorMessage]="'Внутренняя ошибка сервера'"
+    *ngIf="error"
+  ></app-error-message>
+
   <thead>
     <tr>
       <th>Id</th>

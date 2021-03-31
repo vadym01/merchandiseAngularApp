@@ -6,6 +6,7 @@
     <app-employee-form
       [formData]="employee"
       (newItemEvent)="onSubmitChanges($event)"
+      [error]="error"
     ></app-employee-form>
   </div>
   <div class="table-container">

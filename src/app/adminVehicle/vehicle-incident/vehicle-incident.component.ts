@@ -6,6 +6,7 @@ import { VehicleService } from 'src/app/services/vehicle.service';
 import { Vehicle } from 'src/app/services/model/vehicle.model';
 import { NgForm } from '@angular/forms';
 import { Employee } from 'src/app/services/model/employee.model';
+import { ErrorReport } from 'src/app/services/model/error.model';
 
 @Component({
   selector: 'app-vehicle-incident',
@@ -17,8 +18,7 @@ export class VehicleIncidentComponent implements OnInit {
   allVehicles: Vehicle[];
   incident: Incident;
   vehicle: Vehicle;
-  // selectedVehicleId: number;
-  // isRedacting: boolean = false;
+  error: ErrorReport;
   showIncidentForm = false;
 
   @ViewChild('f') vehicleIncidentForm: NgForm | undefined;
@@ -35,6 +35,7 @@ export class VehicleIncidentComponent implements OnInit {
         console.log(data);
       },
       (error) => {
+        this.error = error.error;
         console.error(error);
       }
     );
@@ -42,9 +43,9 @@ export class VehicleIncidentComponent implements OnInit {
     this.vehicleService.getAllAvailableVehicles().subscribe(
       (data) => {
         this.allVehicles = data;
-        // console.log(data);
       },
       (error) => {
+        this.error = error.error;
         console.log(error);
       }
     );
@@ -93,6 +94,7 @@ export class VehicleIncidentComponent implements OnInit {
         incident = response;
       },
       (error) => {
+        this.error = error.error;
         console.log(error);
       }
     );

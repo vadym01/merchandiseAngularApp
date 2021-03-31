@@ -1,4 +1,10 @@
 <div class="form-container">
+  <app-error-message
+    [technicalError]="error"
+    [customErrorMessage]="'Внутренняя ошибка сервера'"
+    *ngIf="error"
+  ></app-error-message>
+
   <form (ngSubmit)="onSubmit(f)" #f="ngForm">
     <div class="main-info-container">
       <div class="form-group">

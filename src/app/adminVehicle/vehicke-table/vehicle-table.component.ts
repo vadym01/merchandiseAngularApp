@@ -10,6 +10,7 @@ import { Vehicle } from 'src/app/services/model/vehicle.model';
 import { VehicleService } from 'src/app/services/vehicle.service';
 import { error } from 'protractor';
 import { NgForm } from '@angular/forms';
+import { ErrorReport } from 'src/app/services/model/error.model';
 
 @Component({
   selector: 'app-vehicle-table',
@@ -18,10 +19,10 @@ import { NgForm } from '@angular/forms';
 })
 export class VehicleTableComponent implements OnInit {
   @ViewChild('f') searchForm: NgForm | undefined;
-  @Input()
-  showActions: boolean = false;
+  @Input() showActions: boolean = false;
   @Input() vehicles: Vehicle[];
   @Input() vehicle: Vehicle;
+  @Input() error: ErrorReport;
   @Output() vehicleInfoId = new EventEmitter<number>();
   constructor(private vehicleService: VehicleService) {}
 
@@ -37,6 +38,7 @@ export class VehicleTableComponent implements OnInit {
         this.vehicles = data;
       },
       (error) => {
+        this.error = error;
         console.log(error);
       }
     );

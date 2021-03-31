@@ -8,6 +8,7 @@ import {
 } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Employee } from 'src/app/services/model/employee.model';
+import { ErrorReport } from 'src/app/services/model/error.model';
 
 @Component({
   selector: 'app-employee-form',
@@ -18,6 +19,7 @@ export class EmployeeFormComponent implements OnInit {
   @ViewChild('f') formElement: NgForm | undefined;
 
   @Input() formData: Employee;
+  @Input() error: ErrorReport;
   @Output() newItemEvent = new EventEmitter<NgForm>();
 
   constructor() {}

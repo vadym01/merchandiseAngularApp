@@ -10,6 +10,7 @@ import { ProductService } from 'src/app/services/product.service';
 import { Product } from 'src/app/services/model/product.model';
 import { HttpErrorResponse } from '@angular/common/http';
 import { ErrorReport } from 'src/app/services/model/error.model';
+import { connectableObservableDescriptor } from 'rxjs/internal/observable/ConnectableObservable';
 
 @Component({
   selector: 'app-new-product-registration',
@@ -34,6 +35,7 @@ export class NewProductRegistrationComponent implements OnInit {
       },
       (error) => {
         this.error = error.error;
+        console.error(error);
       }
     );
   }
