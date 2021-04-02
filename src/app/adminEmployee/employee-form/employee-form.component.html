@@ -73,15 +73,15 @@
         <label for="birthDate">Дата рождения</label>
         <input
           type="date"
-          id="dob"
+          id="DOB"
           class="form-control"
-          [ngModel]="formData?.dob"
+          [ngModel]="formData?.DOB"
           (ngModelChange)="(null)"
-          name="dob"
+          name="DOB"
           required
-          #dob="ngModel"
+          #DOB="ngModel"
         />
-        <span class="validation-message" *ngIf="!dob.valid && dob.touched"
+        <span class="validation-message" *ngIf="!DOB.valid && DOB.touched"
           >Введите дату рождения</span
         >
       </div>

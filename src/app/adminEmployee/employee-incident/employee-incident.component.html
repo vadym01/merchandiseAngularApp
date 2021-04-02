@@ -80,7 +80,12 @@
 
     <div class="submit-form-group">
       <div class="submit-container">
-        <button type="submit" id="submit-button"></button>
+        <button
+          type="submit"
+          id="submit-button"
+          [disabled]="f.invalid"
+          [ngClass]="{ 'disabled-button': f.invalid }"
+        ></button>
         <p>Сохранить</p>
       </div>
     </div>

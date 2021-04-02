@@ -24,7 +24,9 @@ export class EmployeeFormComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    console.log(this.formData);
+  }
 
   onSubmit(data: NgForm) {
     this.newItemEvent.emit(data);
