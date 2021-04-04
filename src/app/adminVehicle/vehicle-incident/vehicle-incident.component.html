@@ -8,23 +8,39 @@
           type="text"
           id="incidentDescription"
           class="form-control"
+          required
+          minlength="2"
+          maxlength="40"
           [ngModel]="incident?.incidentDescription"
           (ngModelChange)="(null)"
           name="incidentDescription"
+          #incidentDescription="ngModel"
         />
+        <div
+          class="validation-message"
+          *ngIf="!incidentDescription.valid && incidentDescription.touched"
+        >
+          Введите от 2 до 40 символов для обозначения фамилии работниа
+        </div>
       </div>
-      <div class="form-group">
-        <label for="date">Дата инцыдента</label>
-        <input
-          type="date"
-          id="date"
-          class="form-control"
-          [ngModel]="incident?.date"
-          (ngModelChange)="(null)"
-          name="date"
-        />
-      </div>
-      <div>
+
+      <div class="date-input-group">
+        <div class="form-group">
+          <label for="date">Дата инцыдента</label>
+          <input
+            type="date"
+            id="date"
+            class="form-control"
+            required
+            [ngModel]="incident?.date"
+            (ngModelChange)="(null)"
+            name="date"
+            #date="ngModel"
+          />
+          <div class="validation-message" *ngIf="!date.valid && date.touched">
+            Введите дату инцидента
+          </div>
+        </div>
         <div class="form-group">
           <label for="vehicleId">Id техники</label>
           <input
@@ -37,35 +53,28 @@
             disabled
           />
         </div>
-        <div class="form-group">
-          <label for="vehicleName">Название техники</label>
-          <input
-            type="text"
-            id="vehicleName"
-            class="form-control"
-            [ngModel]="vehicle?.vehicleName"
-            (ngModelChange)="(null)"
-            name="vehicleName"
-            disabled
-          />
-        </div>
-        <!-- <div class="form-group incident-status">
-          <input
-            type="checkbox"
-            id="incidentStatus"
-            class="form-control"
-            [ngModel]="incident?.isResolved"
-            [value]="incident?.isResolved ? true : false"
-            (ngModelChange)="(null)"
-            name="incidentStatus"
-          />
-          <label for="incidentStatus">Статус инцидента</label>
-        </div> -->
+      </div>
+      <div class="form-group">
+        <label for="vehicleName">Название техники</label>
+        <input
+          type="text"
+          id="vehicleName"
+          class="form-control"
+          [ngModel]="vehicle?.vehicleName"
+          (ngModelChange)="(null)"
+          name="vehicleName"
+          disabled
+        />
       </div>
     </div>
     <div class="submit-form-group">
       <div class="submit-container">
-        <button type="submit" id="submit-button"></button>
+        <button
+          type="submit"
+          id="submit-button"
+          [disabled]="f.invalid"
+          [ngClass]="{ 'disabled-button': f.invalid }"
+        ></button>
         <p>Сохранить</p>
       </div>
     </div>

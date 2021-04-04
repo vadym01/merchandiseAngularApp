@@ -40,3 +40,9 @@
 input.ng-invalid.ng-touched {
   border: 1px solid red;
 }
+
+.date-input-group input {
+  width: 130px;
+  height: 25px;
+  font-size: 1em;
+}

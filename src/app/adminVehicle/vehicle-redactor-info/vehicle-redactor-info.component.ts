@@ -21,6 +21,7 @@ export class VehicleRedactorInfoComponent implements OnInit {
   ngOnInit(): void {
     this.vehicleService.getAllVehicles().subscribe(
       (data) => {
+        console.log(data);
         this.vehicles = data;
       },
       (error) => {
