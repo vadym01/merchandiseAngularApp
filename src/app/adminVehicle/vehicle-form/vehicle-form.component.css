@@ -28,6 +28,7 @@
   background-image: url("src/resources/saveImg.png");
   background-color: #cab3b3;
   border-radius: 5px;
+  cursor: not-allowed;
 }
 
 .submit-container {
@@ -38,4 +39,10 @@
 
 input.ng-invalid.ng-touched {
   border: 1px solid red;
+}
+
+.date-input-group input {
+  width: 130px;
+  height: 25px;
+  font-size: 1em;
 }

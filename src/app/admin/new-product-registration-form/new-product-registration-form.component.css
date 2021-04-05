@@ -67,6 +67,7 @@ textarea {
   background-image: url("src/resources/saveImg.png");
   background-color: #cab3b3;
   border-radius: 5px;
+  cursor: not-allowed;
 }
 
 .submit-container {

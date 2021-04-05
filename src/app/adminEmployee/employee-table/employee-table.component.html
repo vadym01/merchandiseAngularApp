@@ -1,4 +1,10 @@
 <table class="styled-table">
+  <app-error-message
+    [technicalError]="error"
+    [customErrorMessage]="'Внутренняя ошибка сервера'"
+    *ngIf="error"
+  ></app-error-message>
+
   <thead>
     <tr>
       <th>Id</th>
@@ -23,7 +29,7 @@
       <td>
         {{ employee.patronymic }}
       </td>
-      <td>{{ employee.dob | date: "y-dd-MM" }}</td>
+      <td>{{ employee.DOB | date: "y-dd-MM" }}</td>
 
       <td [ngStyle]="{ width: '100px' }" *ngIf="showButtons">
         <button

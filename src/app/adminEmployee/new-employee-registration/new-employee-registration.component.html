@@ -1,4 +1,7 @@
 <div class="registration-container">
   <app-title [description]="'Регистрация нового работника'"></app-title>
-  <app-employee-form (newItemEvent)="onSubmit($event)"></app-employee-form>
+  <app-employee-form
+    (newItemEvent)="onSubmit($event)"
+    [error]="error"
+  ></app-employee-form>
 </div>

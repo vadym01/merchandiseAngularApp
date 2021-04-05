@@ -3,9 +3,11 @@
   *ngIf="displayForm"
   [formData]="vehicle"
   (newVehicleEvent)="onVehicleFormSubmit($event)"
+  [error]="error"
 ></app-vehicle-form>
 <app-vehicle-table
   (vehicleInfoId)="showVehicleForm($event)"
   [showActions]="true"
   [vehicles]="vehicles"
+  [error]="error"
 ></app-vehicle-table>

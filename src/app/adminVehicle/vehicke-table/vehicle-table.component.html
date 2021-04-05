@@ -1,4 +1,10 @@
 <form (ngSubmit)="onSubmit()" #f="ngForm" id="search-form">
+  <app-error-message
+    [technicalError]="error"
+    [customErrorMessage]="'Внутренняя ошибка сервера'"
+    *ngIf="error"
+  ></app-error-message>
+
   <label for="name">Vehicle Name</label>
   <input type="tel" id="name" name="name" ngModel />
   <button type="submit" class="button-action">

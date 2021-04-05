@@ -1,4 +1,10 @@
 <div class="form-container">
+  <app-error-message
+    [technicalError]="error"
+    [customErrorMessage]="'Внутренняя ошибка сервера'"
+    *ngIf="error"
+  ></app-error-message>
+
   <form (ngSubmit)="onSubmit(f)" #f="ngForm">
     <div class="main-info-container">
       <div class="form-group">
@@ -66,7 +72,7 @@
           class="form-control"
           name="receiver"
           size="40"
-          minlength="5"
+          minlength="2"
           maxlength="40"
           required
           [ngModel]="product?.receiver"
@@ -91,6 +97,7 @@
             step="0.1"
             min="0.1"
             max="1000"
+            appWeightInputValidator
             required
             [ngModel]="product?.weight"
             (ngModelChange)="(null)"
@@ -99,11 +106,36 @@
           />
           <span
             class="validation-message"
-            *ngIf="!weight.valid && weight.touched"
+            *ngIf="
+              !weight.valid && weight.touched && weight.errors?.numberInvalid
+            "
             >Введите число от 0.1 до 1000 для обозначения веса
           </span>
         </div>
         <div class="form-group">
+          <label for="volume">Объем</label>
+          <input
+            type="number"
+            class="form-control"
+            step="0.1"
+            min="0.1"
+            max="50"
+            appVolumeInputValidator
+            required
+            [ngModel]="product?.volume"
+            (ngModelChange)="(null)"
+            name="volume"
+            #volume="ngModel"
+          />
+          <span
+            class="validation-message"
+            *ngIf="
+              !volume.valid && volume.touched && volume.errors?.numberInvalid
+            "
+            >Введите число от 0.1 до 50 для обозначения объема</span
+          >
+        </div>
+        <!-- <div class="form-group">
           <label for="volume">Объем</label>
           <input
             type="number"
@@ -119,10 +151,12 @@
           />
           <span
             class="validation-message"
-            *ngIf="!volume.valid && volume.touched"
+            *ngIf="
+              !volume.valid && volume.touched
+            "
             >Введите число от 0.1 до 50 для обозначения объема</span
           >
-        </div>
+        </div> -->
       </div>
       <div class="date-input-group">
         <div class="form-group">

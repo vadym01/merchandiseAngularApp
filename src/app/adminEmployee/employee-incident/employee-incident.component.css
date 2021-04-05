@@ -24,18 +24,6 @@ table {
   padding: 12px 15px;
 }
 
-.styled-table tbody tr {
-  border-bottom: 1px solid #dddddd;
-}
-
-.styled-table tbody tr:nth-of-type(even) {
-  background-color: #f3f3f3;
-}
-
-.styled-table tbody tr:last-of-type {
-  border-bottom: 2px solid #009879;
-}
-
 tr :last-child {
   display: flex;
   align-items: center;
@@ -79,6 +67,13 @@ textarea {
   cursor: pointer;
   width: 50px;
   height: 50px;
+}
+
+#submit-button.disabled-button {
+  background-image: url("src/resources/saveImg.png");
+  background-color: #cab3b3;
+  border-radius: 5px;
+  cursor: not-allowed;
 }
 
 .detail-info-container {

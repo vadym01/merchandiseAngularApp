@@ -1,4 +1,10 @@
 <div class="form-container">
+  <app-error-message
+    [technicalError]="error"
+    [customErrorMessage]="'Внутренняя ошибка сервера'"
+    *ngIf="error"
+  ></app-error-message>
+
   <form (ngSubmit)="onSubmit(f)" #f="ngForm">
     <div class="main-info-container">
       <div class="form-group">
@@ -7,6 +13,8 @@
           type="text"
           id="vehicleName"
           class="form-control"
+          minlength="2"
+          maxlength="40"
           [ngModel]="formData?.vehicleName"
           (ngModelChange)="(null)"
           name="vehicleName"
@@ -17,46 +25,48 @@
           class="validation-message1"
           *ngIf="!vehicleName.valid && vehicleName.touched"
         >
-          Введите минимум два символа для обозначения типа сехники
+          Введите от 2 до 40 символов для обозначения имени работниа
         </span>
       </div>
-      <div class="form-group">
-        <label for="dateOfReceipt">Дата поступления</label>
-        <input
-          type="date"
-          id="dateOfReceipt"
-          class="form-control"
-          [ngModel]="formData?.dateOfReceipt"
-          (ngModelChange)="(null)"
-          name="dateOfReceipt"
-          required
-          #dateOfReceipt="ngModel"
-        />
-        <span
-          class="validation-message"
-          *ngIf="!dateOfReceipt.valid && dateOfReceipt.touched"
-        >
-          Введите дату поступления</span
-        >
-      </div>
-      <div class="form-group">
-        <label for="liftingCapacity">Грузоподемность</label>
-        <input
-          type="number"
-          id="liftingCapacity"
-          class="form-control"
-          [ngModel]="formData?.liftingCapacity"
-          (ngModelChange)="(null)"
-          name="liftingCapacity"
-          required
-          #liftingCapacity="ngModel"
-        />
-        <span
-          class="validation-message"
-          *ngIf="!liftingCapacity.valid && liftingCapacity.touched"
-        >
-          Введите грузоподемность</span
-        >
+      <div class="date-input-group">
+        <div class="form-group">
+          <label for="dateOfReceipt">Дата поступления</label>
+          <input
+            type="date"
+            id="dateOfReceipt"
+            class="form-control"
+            [ngModel]="formData?.dateOfReceipt"
+            (ngModelChange)="(null)"
+            name="dateOfReceipt"
+            required
+            #dateOfReceipt="ngModel"
+          />
+          <span
+            class="validation-message"
+            *ngIf="!dateOfReceipt.valid && dateOfReceipt.touched"
+          >
+            Введите дату поступления</span
+          >
+        </div>
+        <div class="form-group">
+          <label for="liftingCapacity">Грузоподемность</label>
+          <input
+            type="number"
+            id="liftingCapacity"
+            class="form-control"
+            [ngModel]="formData?.liftingCapacity"
+            (ngModelChange)="(null)"
+            name="liftingCapacity"
+            required
+            #liftingCapacity="ngModel"
+          />
+          <span
+            class="validation-message"
+            *ngIf="!liftingCapacity.valid && liftingCapacity.touched"
+          >
+            Введите грузоподемность</span
+          >
+        </div>
       </div>
     </div>
     <div class="submit-form-group">

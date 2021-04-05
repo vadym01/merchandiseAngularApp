@@ -1,5 +1,9 @@
 <app-title [description]="'Инциденты'"></app-title>
-
+<app-error-message
+  [technicalError]="error"
+  [customErrorMessage]="'Внутренняя ошибка сервера'"
+  *ngIf="error"
+></app-error-message>
 <div class="form-container" *ngIf="showIncidentForm">
   <form (ngSubmit)="onSubmit()" #f="ngForm">
     <div class="main-info-container">
@@ -45,7 +49,7 @@
           </div>
           <div>
             <div class="form-group">
-              <label for="employeeId">Id техники</label>
+              <label for="employeeId">Id работника</label>
               <input
                 type="number"
                 id="employeeId"
@@ -76,7 +80,12 @@
 
     <div class="submit-form-group">
       <div class="submit-container">
-        <button type="submit" id="submit-button"></button>
+        <button
+          type="submit"
+          id="submit-button"
+          [disabled]="f.invalid"
+          [ngClass]="{ 'disabled-button': f.invalid }"
+        ></button>
         <p>Сохранить</p>
       </div>
     </div>

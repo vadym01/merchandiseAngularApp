@@ -1,6 +1,7 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import { EmployeeService } from 'src/app/services/employee.service';
 import { NgForm } from '@angular/forms';
+import { ErrorReport } from 'src/app/services/model/error.model';
 
 @Component({
   selector: 'app-new-employee-registration',
@@ -9,6 +10,7 @@ import { NgForm } from '@angular/forms';
 })
 export class NewEmployeeRegistrationComponent implements OnInit {
   @ViewChild('f') registrationForm: NgForm | undefined;
+  error: ErrorReport;
 
   constructor(private employeeService: EmployeeService) {}
 
@@ -20,6 +22,7 @@ export class NewEmployeeRegistrationComponent implements OnInit {
         console.log(response);
       },
       (error) => {
+        this.error = error.error;
         console.error(error);
       }
     );

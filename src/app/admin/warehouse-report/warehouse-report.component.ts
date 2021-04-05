@@ -1,6 +1,7 @@
-import {Component, OnInit} from '@angular/core';
-import {ProductService} from 'src/app/services/product.service';
-import {ProductStorage} from 'src/app/services/model/product-storage.model';
+import { Component, OnInit } from '@angular/core';
+import { ProductService } from 'src/app/services/product.service';
+import { ProductStorage } from 'src/app/services/model/product-storage.model';
+import { ErrorReport } from 'src/app/services/model/error.model';
 
 @Component({
   selector: 'app-warehouse-report',
@@ -9,10 +10,9 @@ import {ProductStorage} from 'src/app/services/model/product-storage.model';
 })
 export class WarehouseReportComponent implements OnInit {
   totalAmount: ProductStorage;
-  error: string;
+  error: ErrorReport;
 
-  constructor(private productService: ProductService) {
-  }
+  constructor(private productService: ProductService) {}
 
   ngOnInit(): void {
     this.productService.getTotalAmount().subscribe(
@@ -21,6 +21,7 @@ export class WarehouseReportComponent implements OnInit {
         console.log(data);
       },
       (error) => {
+        this.error = error.error;
         console.error(error);
       }
     );

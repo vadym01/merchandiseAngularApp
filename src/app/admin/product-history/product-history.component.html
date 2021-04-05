@@ -1,33 +1,57 @@
 <app-title [description]="'История поступлений'"></app-title>
-
-<div *ngIf="showForm">
-  <button (click)="onClickCloseInfoHandler()">close</button>
-  <app-new-product-registration-form
-    (formSubmissionEvent)="onFormSubmit($event)"
-    [product]="selectedProduct"
-  >
-  </app-new-product-registration-form>
+<app-error-message
+  [technicalError]="error"
+  [customErrorMessage]="'Внутренняя ошибка сервера'"
+  *ngIf="error"
+></app-error-message>
+<div *ngIf="showForm" class="data-manage-container">
+  <div>
+    <app-new-product-registration-form
+      (formSubmissionEvent)="onFormSubmit($event)"
+      [product]="selectedProduct"
+    >
+    </app-new-product-registration-form>
+  </div>
+  <div>
+    <button (click)="onClickCloseInfoHandler()" class="button-action">
+      <i class="fa fa-times" aria-hidden="true"></i>
+    </button>
+  </div>
 </div>
 
-<div *ngIf="showInfo" class="product-info">
-  <button (click)="onClickCloseInfoHandler()">close</button>
-  <p>INVNumber: {{ selectedProduct?.invnumber }}</p>
-  <p>Обозначение Продукта: {{ selectedProduct?.productName }}</p>
-  <p>Описание: {{ selectedProduct?.description }}</p>
-  <p>Вес: {{ selectedProduct?.weight }}</p>
-  <p>Обем: {{ selectedProduct?.volume }}</p>
-  <p>Отправитель: {{ selectedProduct?.sender }}</p>
-  <p>Получатель: {{ selectedProduct?.receiver }}</p>
-  <p>Дата получения: {{ selectedProduct?.receiptDate }}</p>
-  <p>
-    Планированая дата отправления: {{ selectedProduct?.scheduledShipmentDate }}
-  </p>
-  <p>Присутствует на складе: {{ selectedProduct?.isPresent }}</p>
-  <p>Обработан: {{ selectedProduct?.isProcessed }}</p>
-  <p>Загружен работником {{ selectedProduct?.loadedByEmployee }}</p>
-  <p>Отпарвлен работником {{ selectedProduct?.sentByEmployee }}</p>
-  <p>Дата загрузки на склад: {{ selectedProduct?.arrivalDate }}</p>
-  <p>Дата отправления сос клада: {{ selectedProduct?.shipmentDate }}</p>
+<div *ngIf="showInfo" class="data-manage-container">
+  <div>
+    <p>INVNumber: {{ selectedProduct?.invnumber }}</p>
+    <p>Обозначение Продукта: {{ selectedProduct?.productName }}</p>
+    <p>Описание: {{ selectedProduct?.description }}</p>
+    <p>Вес: {{ selectedProduct?.weight }}</p>
+    <p>Обем: {{ selectedProduct?.volume }}</p>
+    <p>Отправитель: {{ selectedProduct?.sender }}</p>
+    <p>Получатель: {{ selectedProduct?.receiver }}</p>
+    <p>Дата получения: {{ selectedProduct?.receiptDate }}</p>
+    <p>
+      Планированая дата отправления:
+      {{ selectedProduct?.scheduledShipmentDate }}
+    </p>
+    <p>
+      Присутствует на складе:
+      {{ selectedProduct?.isPresent ? "Присутствует" : "Отсутствует" }}
+    </p>
+    <p>Обработан: {{ selectedProduct?.isProcessed ? "Да" : "Нет" }}</p>
+    <p>
+      Загружен работником: {{ selectedProduct?.loadedByEmployee?.firstName }}
+    </p>
+    <p>
+      Отпарвлен работником: {{ selectedProduct?.sentByEmployee?.firstName }}
+    </p>
+    <p>Дата загрузки на склад: {{ selectedProduct?.arrivalDate }}</p>
+    <p>Дата отправления сос клада: {{ selectedProduct?.shipmentDate }}</p>
+  </div>
+  <div>
+    <button (click)="onClickCloseInfoHandler()" class="button-action">
+      <i class="fa fa-times" aria-hidden="true"></i>
+    </button>
+  </div>
 </div>
 
 <table class="styled-table">
@@ -44,7 +68,7 @@
       <th>Действия</th>
     </tr>
   </thead>
-  <tbody class="tbody-class">
+  <tbody>
     <tr *ngFor="let product of productData; let indexOfElement = index">
       <td>
         {{ product.invnumber }}
@@ -61,16 +85,22 @@
       <td [ngStyle]="{ width: '100px' }">
         <button
           (click)="showDataInfoClickHandler(indexOfElement)"
-          id="info-button"
-        ></button>
+          class="button-action"
+        >
+          <i class="fa fa-info" aria-hidden="true"></i>
+        </button>
         <button
           (click)="editDataInfoClickHandler(indexOfElement)"
-          id="edit-button"
-        ></button>
+          class="button-action"
+        >
+          <i class="fa fa-pencil" aria-hidden="true"></i>
+        </button>
         <button
           (click)="onDeleteClickHandler(product.invnumber, indexOfElement)"
-          id="delete-button"
-        ></button>
+          class="button-action"
+        >
+          <i class="fa fa-trash" aria-hidden="true"></i>
+        </button>
       </td>
     </tr>
   </tbody>

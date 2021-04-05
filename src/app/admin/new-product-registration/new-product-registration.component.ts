@@ -8,6 +8,9 @@ import {
 import { NgForm } from '@angular/forms';
 import { ProductService } from 'src/app/services/product.service';
 import { Product } from 'src/app/services/model/product.model';
+import { HttpErrorResponse } from '@angular/common/http';
+import { ErrorReport } from 'src/app/services/model/error.model';
+import { connectableObservableDescriptor } from 'rxjs/internal/observable/ConnectableObservable';
 
 @Component({
   selector: 'app-new-product-registration',
@@ -16,7 +19,7 @@ import { Product } from 'src/app/services/model/product.model';
 })
 export class NewProductRegistrationComponent implements OnInit {
   formSubmissionResult: Product;
-  error: string;
+  error: ErrorReport;
   invNumber: number;
 
   @ViewChild('f') registrationForm: NgForm | undefined;
@@ -31,10 +34,8 @@ export class NewProductRegistrationComponent implements OnInit {
         console.log(response);
       },
       (error) => {
+        this.error = error.error;
         console.error(error);
-
-        setTimeout((this.error = null), 4000);
-        this.error = error;
       }
     );
   }

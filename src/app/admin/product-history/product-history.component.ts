@@ -3,6 +3,8 @@ import { ProductService } from 'src/app/services/product.service';
 import { Product } from 'src/app/services/model/product.model';
 import { error } from 'protractor';
 import { NgForm } from '@angular/forms';
+import { HttpErrorResponse } from '@angular/common/http';
+import { ErrorReport } from 'src/app/services/model/error.model';
 
 @Component({
   selector: 'app-product-history',
@@ -14,6 +16,7 @@ export class ProductHistoryComponent implements OnInit {
   selectedProduct: Product;
   showInfo: boolean = false;
   showForm: boolean = false;
+  error: ErrorReport;
 
   constructor(private productService: ProductService) {}
 
@@ -23,7 +26,8 @@ export class ProductHistoryComponent implements OnInit {
         this.productData = data;
       },
       (error) => {
-        console.log(error);
+        this.error = error.error;
+        console.error(error);
       }
     );
   }
@@ -46,6 +50,7 @@ export class ProductHistoryComponent implements OnInit {
         console.log(response);
       },
       (error) => {
+        this.error = error.error;
         console.error(error);
       }
     );
@@ -67,6 +72,7 @@ export class ProductHistoryComponent implements OnInit {
         product = response;
       },
       (error) => {
+        this.error = error.error;
         console.log(error);
       }
     );

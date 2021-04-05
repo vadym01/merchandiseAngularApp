@@ -36,42 +36,28 @@ table {
   border-bottom: 2px solid #009879;
 }
 
-/* #submit-button {
-  background-image: url("src/resources/validSubmitionIconImg.png");
-  background-size: cover;
-  border: none;
-  background-color: transparent;
-  cursor: pointer;
-  width: 50px;
-  height: 50px;
-} */
-
-#info-button {
-  background-image: url("src/resources/infoButtonIcon.png");
-  background-size: cover;
-  border: none;
-  background-color: transparent;
-  cursor: pointer;
-  width: 20px;
-  height: 20px;
+.data-manage-container {
+  display: grid;
+  grid-template-columns: 350px 10px;
 }
 
-#edit-button {
-  background-image: url("src/resources/editIconImg.png");
-  background-size: cover;
-  border: none;
-  background-color: transparent;
-  cursor: pointer;
-  width: 20px;
-  height: 20px;
+.data-manage-container p {
+  padding-left: 15px;
 }
 
-#delete-button {
-  background-image: url("src/resources/deleteButtonIcon.png");
-  background-size: cover;
+tr :last-child {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button-action {
   border: none;
   background-color: transparent;
   cursor: pointer;
-  width: 20px;
-  height: 20px;
+  margin-right: 12px;
+}
+
+.fa {
+  font-size: 1.5em;
 }
