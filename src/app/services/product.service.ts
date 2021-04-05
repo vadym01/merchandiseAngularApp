@@ -11,6 +11,7 @@ export class ProductService {
   baseUrl = environment.baseUrl;
   constructor(private http: HttpClient) {}
 
+  // this is already on my repo
   saveProduct(data: Product) {
     return this.http.post<Product>(this.baseUrl + 'product', data);
   }
