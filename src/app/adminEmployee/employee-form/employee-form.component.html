@@ -78,6 +78,7 @@
           [ngModel]="formData?.DOB"
           (ngModelChange)="(null)"
           name="DOB"
+          [max]="today"
           required
           #DOB="ngModel"
         />
