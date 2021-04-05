@@ -30,6 +30,8 @@ import { EmployeeIncidentComponent } from './adminEmployee/employee-incident/emp
 import { NewProductRegistrationFormComponent } from './admin/new-product-registration-form/new-product-registration-form.component';
 import { SidebarFillerComponent } from './globalComponents/sidebar-filler/sidebar-filler.component';
 import { ErrorMessageComponent } from './globalComponents/error-message/error-message.component';
+import { VolumeInputValidatorDirective } from './directives/volume-validator/volume-input-validator.directive';
+import { WeightInputValidatorDirective } from './directives/weight-validator/weight-input-validator.directive';
 
 // import { HttpClient } from '@angular/common/http';
 
@@ -113,6 +115,8 @@ const appRoutes: Routes = [
     NewProductRegistrationFormComponent,
     SidebarFillerComponent,
     ErrorMessageComponent,
+    VolumeInputValidatorDirective,
+    WeightInputValidatorDirective,
   ],
   imports: [
     BrowserModule,
