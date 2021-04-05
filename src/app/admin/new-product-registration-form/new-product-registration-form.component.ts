@@ -21,6 +21,8 @@ export class NewProductRegistrationFormComponent implements OnInit {
   @Input() error: ErrorReport;
   @Output() formSubmissionEvent = new EventEmitter<NgForm>();
   @ViewChild('f') productForm: NgModel | undefined;
+
+  today = new Date().toJSON().split('T')[0];
   constructor() {}
 
   ngOnInit(): void {

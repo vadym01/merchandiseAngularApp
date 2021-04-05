@@ -21,7 +21,7 @@ export class EmployeeFormComponent implements OnInit {
   @Input() formData: Employee;
   @Input() error: ErrorReport;
   @Output() newItemEvent = new EventEmitter<NgForm>();
-
+  today = new Date().toJSON().split('T')[0];
   constructor() {}
 
   ngOnInit(): void {

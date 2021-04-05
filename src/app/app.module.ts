@@ -32,6 +32,7 @@ import { SidebarFillerComponent } from './globalComponents/sidebar-filler/sideba
 import { ErrorMessageComponent } from './globalComponents/error-message/error-message.component';
 import { VolumeInputValidatorDirective } from './directives/volume-validator/volume-input-validator.directive';
 import { WeightInputValidatorDirective } from './directives/weight-validator/weight-input-validator.directive';
+import { InputMinMaxNumberValidatorDirective } from './directives/input-min-max-number-validator/input-min-max-number-validator.directive';
 
 // import { HttpClient } from '@angular/common/http';
 
@@ -117,6 +118,7 @@ const appRoutes: Routes = [
     ErrorMessageComponent,
     VolumeInputValidatorDirective,
     WeightInputValidatorDirective,
+    InputMinMaxNumberValidatorDirective,
   ],
   imports: [
     BrowserModule,
