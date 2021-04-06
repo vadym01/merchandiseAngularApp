@@ -14,7 +14,7 @@ export class IncidentService {
     return this.http.put<Incident>(this.baseUrl + `incident`, incident);
   }
 
-  getIncidentForVehicle() {
+  getIncidentsForVehicle() {
     return this.http.get<Incident[]>(this.baseUrl + 'incident/vehicle');
   }
 

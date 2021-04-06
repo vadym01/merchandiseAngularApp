@@ -20,6 +20,7 @@ export class NewProductRegistrationFormComponent implements OnInit {
   @Input() invNumber: number;
   @Input() error: ErrorReport;
   @Output() formSubmissionEvent = new EventEmitter<NgForm>();
+  // @Output() resetForm = new EventEmitter<NgForm>();
   @ViewChild('f') productForm: NgModel | undefined;
 
   today = new Date().toJSON().split('T')[0];
@@ -29,8 +30,11 @@ export class NewProductRegistrationFormComponent implements OnInit {
     console.log(this.product);
   }
 
+  // reset(){
+  //   this.resetForm.emit
+  // }
+
   onSubmit(data: NgForm) {
     this.formSubmissionEvent.emit(data);
-    data.reset();
   }
 }

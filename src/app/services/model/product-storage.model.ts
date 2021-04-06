@@ -1,4 +1,4 @@
 export interface ProductStorage {
-  total: number;
-  spaceAvailable: number;
+  totalVolume: number;
+  totalUnits: number;
 }

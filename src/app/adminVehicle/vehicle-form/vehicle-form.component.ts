@@ -27,6 +27,5 @@ export class VehicleFormComponent implements OnInit {
 
   onSubmit(data: NgForm) {
     this.newVehicleEvent.emit(data);
-    this.formElement.reset();
   }
 }

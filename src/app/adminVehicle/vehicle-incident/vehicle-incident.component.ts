@@ -29,7 +29,7 @@ export class VehicleIncidentComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.incidentService.getIncidentForVehicle().subscribe(
+    this.incidentService.getIncidentsForVehicle().subscribe(
       (data) => {
         this.incidents = data;
         console.log(data);
@@ -92,6 +92,7 @@ export class VehicleIncidentComponent implements OnInit {
     this.incidentService.registerNewIncident(incident).subscribe(
       (response) => {
         incident = response;
+        this.showIncidentForm = false;
       },
       (error) => {
         this.error = error.error;

@@ -52,7 +52,7 @@ export class VehicleRedactorInfoComponent implements OnInit {
     this.vehicle.liftingCapacity = data?.value.liftingCapacity;
     this.vehicleService.updateVehicle(this.vehicle).subscribe(
       (response) => {
-        console.log(response);
+        data.reset();
       },
       (error) => {
         this.error = error;

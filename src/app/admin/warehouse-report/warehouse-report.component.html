@@ -6,11 +6,11 @@
 ></app-error-message>
 <div class="report-container">
   <div class="amount-container">
-    <p class="amount-info" *ngIf="totalAmount?.spaceAvailable">
-      Количество свободного места на складе: {{ totalAmount?.spaceAvailable }}
+    <p class="amount-info">
+      Количество свободной площади складе: {{ totalAmount?.totalVolume }}
     </p>
-    <p class="amount-info" *ngIf="totalAmount?.total">
-      Всего единиц на складе: {{ totalAmount?.total }}
+    <p class="amount-info">
+      Всего единиц на складе: {{ totalAmount?.totalUnits }}
     </p>
   </div>
 </div>

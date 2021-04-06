@@ -61,7 +61,7 @@ export class EmployeeInfoRedactorComponent implements OnInit {
     this.employee.DOB = data.value.DOB;
     this.employeeService.updateEmployee(this.employee).subscribe(
       (response) => {
-        console.log(response);
+        data.reset();
       },
       (error) => {
         this.error = error;

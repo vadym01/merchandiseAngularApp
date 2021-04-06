@@ -20,6 +20,7 @@ export class NewEmployeeRegistrationComponent implements OnInit {
     this.employeeService.saveEmployee(data?.value).subscribe(
       (response) => {
         console.log(response);
+        data.reset();
       },
       (error) => {
         this.error = error.error;

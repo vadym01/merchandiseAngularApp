@@ -30,6 +30,5 @@ export class EmployeeFormComponent implements OnInit {
 
   onSubmit(data: NgForm) {
     this.newItemEvent.emit(data);
-    this.formElement.reset();
   }
 }

@@ -20,6 +20,7 @@ export class NewVehicleRegistrationComponent implements OnInit {
     this.vehicleService.saveNewVehicle(formData?.value).subscribe(
       (response) => {
         console.log(response);
+        formData.reset();
       },
       (error) => {
         this.error = error.error;

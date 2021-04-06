@@ -27,11 +27,11 @@ export class NewProductRegistrationComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  onSubmit(registrationForm: NgForm | undefined) {
+  onSubmit(registrationForm: NgForm) {
     this.productService.saveProduct(registrationForm?.value).subscribe(
       (response) => {
         this.invNumber = response.invnumber;
-        console.log(response);
+        registrationForm.reset();
       },
       (error) => {
         this.error = error.error;

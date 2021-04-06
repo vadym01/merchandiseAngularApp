@@ -121,11 +121,11 @@
             class="form-control"
             step="0.1"
             min="0.1"
-            max="50"
+            max="2"
             required
             appInputMinMaxNumberValidator
             [minVal]="0.1"
-            [maxVal]="50"
+            [maxVal]="2"
             [ngModel]="product?.volume"
             (ngModelChange)="(null)"
             name="volume"
@@ -136,7 +136,7 @@
             *ngIf="
               !volume.valid && volume.touched && volume.errors?.invalidNumber
             "
-            >Введите число от 0.1 до 50 для обозначения объема</span
+            >Введите число от 0.1 до 2 для обозначения объема</span
           >
         </div>
       </div>
@@ -148,6 +148,7 @@
             class="form-control"
             [ngModel]="product?.receiptDate"
             (ngModelChange)="(null)"
+            [min]="today"
             required
             name="receiptDate"
             #receiptDate="ngModel"
